@@ -118,6 +118,17 @@ export const CoupleSection: React.FC = () => {
           {/* Royal Ornamental Card Frame */}
           <div className="relative border-2 border-gold-antique/80 bg-gradient-to-b from-maroon-deep/95 via-maroon-burgundy/98 to-maroon-darkest rounded-t-[48px] rounded-b-3xl p-6 sm:p-8 md:p-10 shadow-2xl backdrop-blur-md text-center overflow-hidden transition-all duration-300">
             
+            {/* ─── GHIBLI ART GROOM CARTOON BACKGROUND (25% OPACITY) ─── */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-t-[48px] rounded-b-3xl z-0">
+              <img
+                src="/groom-cartoon.jpg"
+                alt="Akshay Groom Studio Ghibli Art"
+                className="w-full h-full object-cover object-top opacity-25 filter contrast-105"
+              />
+              {/* Protective Royal Maroon Gradient Wash for 100% Content Readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-maroon-deep/85 via-maroon-burgundy/75 to-maroon-darkest/92" />
+            </div>
+
             {/* Subtle Rotating Watermark Motif in Background */}
             <div className="absolute -right-10 -bottom-10 w-48 h-48 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none">
               <svg viewBox="0 0 100 100" className="w-full h-full fill-gold-antique animate-spin" style={{ animationDuration: '60s' }}>
@@ -136,71 +147,74 @@ export const CoupleSection: React.FC = () => {
             <CornerOrnament position="bottom-left" className="absolute bottom-2 left-2 opacity-80" size={30} />
             <CornerOrnament position="bottom-right" className="absolute bottom-2 right-2 opacity-80" size={30} />
 
-            {/* Top Creative Crest: Royal Safa / Kalgi Medallion */}
-            <div className="flex flex-col items-center justify-center -mt-2 mb-3">
-              <div className="relative p-2.5 rounded-full border-2 border-gold-antique/70 bg-gradient-to-br from-maroon-deep via-maroon-burgundy to-maroon-darkest shadow-gold-sm group-hover:scale-110 transition-transform duration-300">
-                <RoyalSafaIcon size={46} />
-                <div className="absolute -inset-1 rounded-full border border-gold-champagne/40 animate-pulse opacity-30 pointer-events-none" />
+            {/* ─── GROOM CARD CONTENT (z-10 for complete visibility over background) ─── */}
+            <div className="relative z-10">
+              {/* Top Creative Crest: Royal Safa / Kalgi Medallion */}
+              <div className="flex flex-col items-center justify-center -mt-2 mb-3">
+                <div className="relative p-2.5 rounded-full border-2 border-gold-antique/70 bg-gradient-to-br from-maroon-deep via-maroon-burgundy to-maroon-darkest shadow-gold-sm group-hover:scale-110 transition-transform duration-300">
+                  <RoyalSafaIcon size={46} />
+                  <div className="absolute -inset-1 rounded-full border border-gold-champagne/40 animate-pulse opacity-30 pointer-events-none" />
+                </div>
+
+                {/* Title Ribbon Badge */}
+                <div className="mt-2.5 inline-flex items-center gap-1.5 px-4 py-1 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
+                  <span className="font-devanagari text-gold-champagne text-xs sm:text-sm font-bold tracking-widest leading-normal py-0.5">
+                    {t.varLabel}
+                  </span>
+                  <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
+                </div>
               </div>
 
-              {/* Title Ribbon Badge */}
-              <div className="mt-2.5 inline-flex items-center gap-1.5 px-4 py-1 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
-                <span className="font-devanagari text-gold-champagne text-xs sm:text-sm font-bold tracking-widest leading-normal py-0.5">
-                  {t.varLabel}
-                </span>
-                <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
+              {/* Groom Name: अक्षय (Akshay) */}
+              <div className="my-3 md:my-4">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide drop-shadow-md inline-block py-2 leading-normal">
+                  {t.groomName}
+                </h3>
+                <p className="font-cormorant text-lg md:text-xl text-gold-champagne font-semibold tracking-wider mt-0.5">
+                  Akshay
+                </p>
               </div>
-            </div>
 
-            {/* Groom Name: अक्षय (Akshay) */}
-            <div className="my-3 md:my-4">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide drop-shadow-md inline-block py-2 leading-normal">
-                {t.groomName}
-              </h3>
-              <p className="font-cormorant text-lg md:text-xl text-gold-champagne font-semibold tracking-wider mt-0.5">
-                Akshay
-              </p>
-            </div>
+              <div className="w-20 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
 
-            <div className="w-20 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
-
-            {/* 1. Parents Lineage (सुपुत्र) Box */}
-            <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/60 border border-gold-antique/25 shadow-inner">
-              <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
-                <Feather className="w-3.5 h-3.5 text-gold-antique" />
-                <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
-                  {t.suputraOf}
-                </span>
+              {/* 1. Parents Lineage (सुपुत्र) Box */}
+              <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/75 border border-gold-antique/30 shadow-inner backdrop-blur-sm">
+                <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
+                  <Feather className="w-3.5 h-3.5 text-gold-antique" />
+                  <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
+                    {t.suputraOf}
+                  </span>
+                </div>
+                <p className="font-devanagari text-base sm:text-lg md:text-xl font-medium text-cream leading-relaxed py-0.5">
+                  {t.groomParentsHi}
+                </p>
+                <p className="font-cormorant text-xs text-gold-champagne/70 italic mt-0.5">
+                  {t.groomParentsEn}
+                </p>
               </div>
-              <p className="font-devanagari text-base sm:text-lg md:text-xl font-medium text-cream leading-relaxed py-0.5">
-                {t.groomParentsHi}
-              </p>
-              <p className="font-cormorant text-xs text-gold-champagne/70 italic mt-0.5">
-                {t.groomParentsEn}
-              </p>
-            </div>
 
-            {/* 2. Residence (पैतृक निवास) Box */}
-            <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/60 border border-gold-antique/25 shadow-inner">
-              <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
-                <MapPin className="w-3.5 h-3.5 text-gold-antique shrink-0" />
-                <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
-                  {t.nivasiLabel}
-                </span>
+              {/* 2. Residence (पैतृक निवास) Box */}
+              <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/75 border border-gold-antique/30 shadow-inner backdrop-blur-sm">
+                <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
+                  <MapPin className="w-3.5 h-3.5 text-gold-antique shrink-0" />
+                  <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
+                    {t.nivasiLabel}
+                  </span>
+                </div>
+                <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-relaxed py-0.5">
+                  {t.groomResidenceHi}
+                </p>
+                <p className="font-cormorant text-xs text-gold-champagne/70 mt-0.5">
+                  {t.groomResidenceEn}
+                </p>
               </div>
-              <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-relaxed py-0.5">
-                {t.groomResidenceHi}
-              </p>
-              <p className="font-cormorant text-xs text-gold-champagne/70 mt-0.5">
-                {t.groomResidenceEn}
-              </p>
-            </div>
 
-            {/* 3. Sacred Heritage Badge */}
-            <div className="mt-4 pt-3 border-t border-gold-antique/20 flex items-center justify-center gap-2 text-xs font-devanagari text-gold-champagne/80 leading-relaxed py-0.5">
-              <Compass className="w-3.5 h-3.5 text-gold-antique shrink-0" />
-              <span>{t.groomHeritage}</span>
+              {/* 3. Sacred Heritage Badge */}
+              <div className="mt-4 pt-3 border-t border-gold-antique/20 flex items-center justify-center gap-2 text-xs font-devanagari text-gold-champagne/80 leading-relaxed py-0.5">
+                <Compass className="w-3.5 h-3.5 text-gold-antique shrink-0" />
+                <span>{t.groomHeritage}</span>
+              </div>
             </div>
 
           </div>
@@ -254,6 +268,17 @@ export const CoupleSection: React.FC = () => {
           {/* Royal Ornamental Card Frame */}
           <div className="relative border-2 border-gold-antique/80 bg-gradient-to-b from-maroon-deep/95 via-maroon-burgundy/98 to-maroon-darkest rounded-t-[48px] rounded-b-3xl p-6 sm:p-8 md:p-10 shadow-2xl backdrop-blur-md text-center overflow-hidden transition-all duration-300">
             
+            {/* ─── GHIBLI ART BRIDE CARTOON BACKGROUND (25% OPACITY) ─── */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-t-[48px] rounded-b-3xl z-0">
+              <img
+                src="/bride-cartoon.jpg"
+                alt="Vibhuti Bride Studio Ghibli Art"
+                className="w-full h-full object-cover object-top opacity-25 filter contrast-105"
+              />
+              {/* Protective Royal Maroon Gradient Wash for 100% Content Readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-maroon-deep/85 via-maroon-burgundy/75 to-maroon-darkest/92" />
+            </div>
+
             {/* Subtle Rotating Watermark Motif in Background */}
             <div className="absolute -left-10 -bottom-10 w-48 h-48 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none">
               <svg viewBox="0 0 100 100" className="w-full h-full fill-gold-antique animate-spin" style={{ animationDuration: '60s', animationDirection: 'reverse' }}>
@@ -272,71 +297,74 @@ export const CoupleSection: React.FC = () => {
             <CornerOrnament position="bottom-left" className="absolute bottom-2 left-2 opacity-80" size={30} />
             <CornerOrnament position="bottom-right" className="absolute bottom-2 right-2 opacity-80" size={30} />
 
-            {/* Top Creative Crest: Royal Doli / Palanquin Medallion */}
-            <div className="flex flex-col items-center justify-center -mt-2 mb-3">
-              <div className="relative p-2.5 rounded-full border-2 border-gold-antique/70 bg-gradient-to-br from-maroon-deep via-maroon-burgundy to-maroon-darkest shadow-gold-sm group-hover:scale-110 transition-transform duration-300">
-                <RoyalDoliIcon size={46} />
-                <div className="absolute -inset-1 rounded-full border border-gold-champagne/40 animate-pulse opacity-30 pointer-events-none" />
+            {/* ─── BRIDE CARD CONTENT (z-10 for complete visibility over background) ─── */}
+            <div className="relative z-10">
+              {/* Top Creative Crest: Royal Doli / Palanquin Medallion */}
+              <div className="flex flex-col items-center justify-center -mt-2 mb-3">
+                <div className="relative p-2.5 rounded-full border-2 border-gold-antique/70 bg-gradient-to-br from-maroon-deep via-maroon-burgundy to-maroon-darkest shadow-gold-sm group-hover:scale-110 transition-transform duration-300">
+                  <RoyalDoliIcon size={46} />
+                  <div className="absolute -inset-1 rounded-full border border-gold-champagne/40 animate-pulse opacity-30 pointer-events-none" />
+                </div>
+
+                {/* Title Ribbon Badge */}
+                <div className="mt-2.5 inline-flex items-center gap-1.5 px-4 py-1 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
+                  <span className="font-devanagari text-gold-champagne text-xs sm:text-sm font-bold tracking-widest leading-normal py-0.5">
+                    {t.vadhuLabel}
+                  </span>
+                  <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
+                </div>
               </div>
 
-              {/* Title Ribbon Badge */}
-              <div className="mt-2.5 inline-flex items-center gap-1.5 px-4 py-1 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
-                <span className="font-devanagari text-gold-champagne text-xs sm:text-sm font-bold tracking-widest leading-normal py-0.5">
-                  {t.vadhuLabel}
-                </span>
-                <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
+              {/* Bride Name: विभूति (Vibhuti) */}
+              <div className="my-3 md:my-4">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide drop-shadow-md inline-block py-2 leading-normal">
+                  {t.brideName}
+                </h3>
+                <p className="font-cormorant text-lg md:text-xl text-gold-champagne font-semibold tracking-wider mt-0.5">
+                  Vibhuti
+                </p>
               </div>
-            </div>
 
-            {/* Bride Name: विभूति (Vibhuti) */}
-            <div className="my-3 md:my-4">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide drop-shadow-md inline-block py-2 leading-normal">
-                {t.brideName}
-              </h3>
-              <p className="font-cormorant text-lg md:text-xl text-gold-champagne font-semibold tracking-wider mt-0.5">
-                Vibhuti
-              </p>
-            </div>
+              <div className="w-20 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
 
-            <div className="w-20 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
-
-            {/* 1. Parents Lineage (सुपुत्री) Box */}
-            <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/60 border border-gold-antique/25 shadow-inner">
-              <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
-                <Feather className="w-3.5 h-3.5 text-gold-antique" />
-                <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
-                  {t.suputriOf}
-                </span>
+              {/* 1. Parents Lineage (सुपुत्री) Box */}
+              <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/75 border border-gold-antique/30 shadow-inner backdrop-blur-sm">
+                <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
+                  <Feather className="w-3.5 h-3.5 text-gold-antique" />
+                  <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
+                    {t.suputriOf}
+                  </span>
+                </div>
+                <p className="font-devanagari text-base sm:text-lg md:text-xl font-medium text-cream leading-relaxed py-0.5">
+                  {t.brideParentsHi}
+                </p>
+                <p className="font-cormorant text-xs text-gold-champagne/70 italic mt-0.5">
+                  {t.brideParentsEn}
+                </p>
               </div>
-              <p className="font-devanagari text-base sm:text-lg md:text-xl font-medium text-cream leading-relaxed py-0.5">
-                {t.brideParentsHi}
-              </p>
-              <p className="font-cormorant text-xs text-gold-champagne/70 italic mt-0.5">
-                {t.brideParentsEn}
-              </p>
-            </div>
 
-            {/* 2. Residence (पैतृक निवास) Box */}
-            <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/60 border border-gold-antique/25 shadow-inner">
-              <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
-                <MapPin className="w-3.5 h-3.5 text-gold-antique shrink-0" />
-                <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
-                  {t.nivasiLabel}
-                </span>
+              {/* 2. Residence (पैतृक निवास) Box */}
+              <div className="my-3.5 p-3 rounded-2xl bg-maroon-darkest/75 border border-gold-antique/30 shadow-inner backdrop-blur-sm">
+                <div className="flex items-center justify-center gap-1.5 text-gold-champagne mb-1">
+                  <MapPin className="w-3.5 h-3.5 text-gold-antique shrink-0" />
+                  <span className="font-devanagari text-xs uppercase tracking-wider text-gold-champagne/80 font-semibold leading-normal">
+                    {t.nivasiLabel}
+                  </span>
+                </div>
+                <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-relaxed py-0.5">
+                  {t.brideResidenceHi}
+                </p>
+                <p className="font-cormorant text-xs text-gold-champagne/70 mt-0.5">
+                  {t.brideResidenceEn}
+                </p>
               </div>
-              <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-relaxed py-0.5">
-                {t.brideResidenceHi}
-              </p>
-              <p className="font-cormorant text-xs text-gold-champagne/70 mt-0.5">
-                {t.brideResidenceEn}
-              </p>
-            </div>
 
-            {/* 3. Cultural Heritage Badge */}
-            <div className="mt-4 pt-3 border-t border-gold-antique/20 flex items-center justify-center gap-2 text-xs font-devanagari text-gold-champagne/80 leading-relaxed py-0.5">
-              <Compass className="w-3.5 h-3.5 text-gold-antique shrink-0" />
-              <span>{t.brideHeritage}</span>
+              {/* 3. Cultural Heritage Badge */}
+              <div className="mt-4 pt-3 border-t border-gold-antique/20 flex items-center justify-center gap-2 text-xs font-devanagari text-gold-champagne/80 leading-relaxed py-0.5">
+                <Compass className="w-3.5 h-3.5 text-gold-antique shrink-0" />
+                <span>{t.brideHeritage}</span>
+              </div>
             </div>
 
           </div>
