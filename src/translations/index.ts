@@ -61,11 +61,11 @@ export const translations = {
     brideParentsHi: 'श्री हेमंत जी एवं श्रीमती अर्चना',
     brideParentsEn: 'D/o Shri Hemant Ji & Smt. Archana',
     nivasiLabel: 'निवासी:',
-    groomResidenceHi: 'ऋषभदेव, उदयपुर, राजस्थान',
-    groomResidenceEn: 'Rishabhdeo, Udaipur, Rajasthan',
+    groomResidenceHi: 'उदयपुर, राजस्थान',
+    groomResidenceEn: 'Udaipur, Rajasthan',
     brideResidenceHi: 'फिरोजाबाद, उत्तर प्रदेश',
     brideResidenceEn: 'Firozabad, Uttar Pradesh',
-    groomHeritage: 'तीर्थंकर श्री ऋषभदेव पावन भूमि, मेवाड़',
+    groomHeritage: 'पावन मेवाड़ भूमि, राजस्थान',
     brideHeritage: 'पारंपरिक भारतीय सांस्कृतिक संस्कार',
     shubhParinay: 'शुभ परिणय',
 
@@ -153,7 +153,7 @@ export const translations = {
     footerSubtitle: 'राजसी जैन विवाह आमंत्रण',
     footerQuote: '"आपकी गरिमामयी उपस्थिति हमारे लिए सौभाग्य एवं हर्ष का विषय होगी।"',
     footerInvited: 'सादर आमंत्रित',
-    footerLocations: 'ऋषभदेव (उदयपुर) • फिरोजाबाद',
+    footerLocations: 'उदयपुर • फिरोजाबाद',
     footerDates: '24 & 25 नवंबर 2026',
     footerMantra: '卐 ॐ अर्हम् नमः 卐',
 
@@ -223,11 +223,11 @@ export const translations = {
     brideParentsHi: 'Shri Hemant Ji & Smt. Archana',
     brideParentsEn: 'D/o Shri Hemant Ji & Smt. Archana',
     nivasiLabel: 'Residence:',
-    groomResidenceHi: 'Rishabhdeo, Udaipur, Rajasthan',
-    groomResidenceEn: 'Rishabhdeo, Udaipur, Rajasthan',
+    groomResidenceHi: 'Udaipur, Rajasthan',
+    groomResidenceEn: 'Udaipur, Rajasthan',
     brideResidenceHi: 'Firozabad, Uttar Pradesh',
     brideResidenceEn: 'Firozabad, Uttar Pradesh',
-    groomHeritage: 'Sacred Land of Tirthankar Shri Rishabhdeva, Mewar',
+    groomHeritage: 'Sacred Land of Mewar, Rajasthan',
     brideHeritage: 'Traditional Indian Cultural Heritage',
     shubhParinay: 'Sacred Union',
 
@@ -316,7 +316,7 @@ export const translations = {
     footerQuote:
       '"Your gracious presence shall be the greatest honour and joy of this celebration."',
     footerInvited: 'Cordially Invited',
-    footerLocations: 'Rishabhdeo (Udaipur) • Firozabad',
+    footerLocations: 'Udaipur • Firozabad',
     footerDates: '24 & 25 November 2026',
     footerMantra: '卐 Oṃ Arhaṃ Namaḥ 卐',
 
