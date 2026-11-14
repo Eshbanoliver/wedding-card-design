@@ -229,3 +229,4 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
     </div>
   );
 };
+

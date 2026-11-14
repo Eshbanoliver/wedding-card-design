@@ -502,3 +502,4 @@ export const RoyalMandapIllustration: React.FC<{ className?: string }> = ({ clas
     </svg>
   );
 };
+

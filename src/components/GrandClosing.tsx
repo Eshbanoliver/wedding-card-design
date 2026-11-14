@@ -96,3 +96,4 @@ export const GrandClosing: React.FC = () => {
     </section>
   );
 };
+

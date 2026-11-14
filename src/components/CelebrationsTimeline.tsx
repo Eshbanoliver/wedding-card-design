@@ -358,3 +358,4 @@ export const CelebrationsTimeline: React.FC = () => {
     </section>
   );
 };
+

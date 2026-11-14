@@ -80,3 +80,4 @@ export const RoyalFooter: React.FC = () => {
     </footer>
   );
 };
+

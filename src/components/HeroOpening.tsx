@@ -174,3 +174,4 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
     </section>
   );
 };
+

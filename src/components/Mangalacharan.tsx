@@ -87,3 +87,4 @@ export const Mangalacharan: React.FC = () => {
     </section>
   );
 };
+

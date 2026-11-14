@@ -86,3 +86,4 @@ export const RoyalBackground: React.FC<{ children: React.ReactNode }> = ({ child
     </div>
   );
 };
+
