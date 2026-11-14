@@ -577,6 +577,111 @@ export const RoyalDoliIcon: React.FC<{ className?: string; size?: number }> = ({
   );
 };
 
+// 13. Royal Haldi Urli (पारंपरिक शाही हल्दी उरली एवं गेंदा पुष्प)
+export const RoyalHaldiUrliIllustration: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 120 }) => {
+  const gradId = `urli-gold-${Math.random().toString(36).substr(2, 9)}`;
+  return (
+    <svg width={size} height={size * 0.75} viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <linearGradient id={`${gradId}-brass`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFF9D2" />
+          <stop offset="30%" stopColor="#F59E0B" />
+          <stop offset="70%" stopColor="#D97706" />
+          <stop offset="100%" stopColor="#78350F" />
+        </linearGradient>
+        <radialGradient id={`${gradId}-paste`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FEF08A" />
+          <stop offset="60%" stopColor="#FACC15" />
+          <stop offset="100%" stopColor="#EAB308" />
+        </radialGradient>
+        <radialGradient id={`${gradId}-glow`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FBBF24" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Ambient Yellow Haldi Glow */}
+      <ellipse cx="80" cy="75" rx="70" ry="35" fill={`url(#${gradId}-glow)`} />
+
+      {/* Decorative Traditional Brass Handles */}
+      <path
+        d="M 22 68 C 12 68 8 52 18 46 C 24 42 28 50 28 56"
+        stroke={`url(#${gradId}-brass)`}
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="16" cy="54" r="3" fill="#FDE047" />
+
+      <path
+        d="M 138 68 C 148 68 152 52 142 46 C 136 42 132 50 132 56"
+        stroke={`url(#${gradId}-brass)`}
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="144" cy="54" r="3" fill="#FDE047" />
+
+      {/* Urli Pedestal Base */}
+      <ellipse cx="80" cy="98" rx="42" ry="8" fill="#5A2E07" stroke={`url(#${gradId}-brass)`} strokeWidth="2" />
+      <path d="M 52 88 L 60 98 L 100 98 L 108 88 Z" fill={`url(#${gradId}-brass)`} />
+
+      {/* Brass Urli Main Bowl Body */}
+      <path
+        d="M 24 64 C 24 88 50 96 80 96 C 110 96 136 88 136 64 C 136 54 110 46 80 46 C 50 46 24 54 24 64 Z"
+        fill={`url(#${gradId}-brass)`}
+        stroke="#FDE047"
+        strokeWidth="1.5"
+      />
+
+      {/* Carved Floral Band on Bowl Rim */}
+      <ellipse cx="80" cy="56" rx="54" ry="14" fill="#78350F" stroke="#FDE047" strokeWidth="2" />
+      {/* Haldi Turmeric Paste Surface */}
+      <ellipse cx="80" cy="57" rx="50" ry="11" fill={`url(#${gradId}-paste)`} />
+
+      {/* Floating Orange Marigold Flowers (गेंदे के फूल) */}
+      {/* Flower 1 - Center */}
+      <g transform="translate(80, 56)">
+        <circle cx="0" cy="0" r="7" fill="#EA580C" />
+        <circle cx="-4" cy="-3" r="4.5" fill="#F97316" />
+        <circle cx="4" cy="-3" r="4.5" fill="#F97316" />
+        <circle cx="4" cy="3" r="4.5" fill="#FBBF24" />
+        <circle cx="-4" cy="3" r="4.5" fill="#FBBF24" />
+        <circle cx="0" cy="0" r="3" fill="#FEF08A" />
+      </g>
+      {/* Flower 2 - Left */}
+      <g transform="translate(56, 57)">
+        <circle cx="0" cy="0" r="6" fill="#F97316" />
+        <circle cx="-3" cy="-2" r="3.5" fill="#FBBF24" />
+        <circle cx="3" cy="-2" r="3.5" fill="#FBBF24" />
+        <circle cx="0" cy="0" r="2.5" fill="#FEF08A" />
+      </g>
+      {/* Flower 3 - Right */}
+      <g transform="translate(104, 57)">
+        <circle cx="0" cy="0" r="6" fill="#F97316" />
+        <circle cx="-3" cy="-2" r="3.5" fill="#FBBF24" />
+        <circle cx="3" cy="-2" r="3.5" fill="#FBBF24" />
+        <circle cx="0" cy="0" r="2.5" fill="#FEF08A" />
+      </g>
+      {/* Scattered Petals */}
+      <circle cx="42" cy="55" r="2.5" fill="#FDE047" />
+      <circle cx="68" cy="62" r="2" fill="#EA580C" />
+      <circle cx="92" cy="62" r="2" fill="#EA580C" />
+      <circle cx="118" cy="55" r="2.5" fill="#FDE047" />
+
+      {/* Traditional Auspicious Swastik on Urli Front */}
+      <g transform="translate(80, 78) scale(0.65)" stroke="#FEF08A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+        <line x1="0" y1="-8" x2="0" y2="8" />
+        <line x1="-8" y1="0" x2="8" y2="0" />
+        <line x1="0" y1="-8" x2="6" y2="-8" />
+        <line x1="0" y1="8" x2="-6" y2="8" />
+        <line x1="-8" y1="0" x2="-8" y2="-6" />
+        <line x1="8" y1="0" x2="8" y2="6" />
+      </g>
+    </svg>
+  );
+};
+
 // 12. Royal Gathbandhan Knot (पवित्र गठबंधन गाँठ एवं मंगल कलश)
 export const RoyalGathbandhanIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 64 }) => {
   const gradId = `gath-gold-${Math.random().toString(36).substr(2, 9)}`;

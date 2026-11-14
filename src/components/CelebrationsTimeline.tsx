@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { CornerOrnament, GoldDivider, RoyalMandapIllustration } from './OrnamentalSVGs';
+import {
+  CornerOrnament,
+  GoldDivider,
+  RoyalMandapIllustration,
+  RoyalHaldiUrliIllustration,
+} from './OrnamentalSVGs';
 import { Calendar, Clock, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -50,18 +55,11 @@ export const CelebrationsTimeline: React.FC = () => {
       timeEn: t.haldi.timeEn,
       tagline: t.haldi.tagline,
       isMainWedding: false,
+      isHaldi: true,
       svgIcon: (
-        <svg viewBox="0 0 100 100" className="w-16 h-16 mx-auto filter drop-shadow-md">
-          <circle cx="50" cy="50" r="42" fill="#380710" stroke="#C6A15B" strokeWidth="2" />
-          <ellipse cx="50" cy="62" rx="26" ry="12" fill="#D99B26" />
-          <path d="M 24 62 C 24 74 76 74 76 62 Z" fill="#B37D14" />
-          <ellipse cx="50" cy="56" rx="28" ry="8" fill="#F4C430" stroke="#C6A15B" strokeWidth="1.5" />
-          <circle cx="42" cy="54" r="5" fill="#FFA500" />
-          <circle cx="58" cy="54" r="5" fill="#FF8C00" />
-          <circle cx="50" cy="52" r="6" fill="#FFD700" />
-          <path d="M 45 42 L 55 42 L 52 32 L 48 32 Z" fill="#C6A15B" />
-          <circle cx="50" cy="28" r="6" fill="#E6D3A3" />
-        </svg>
+        <div className="w-full flex justify-center py-2">
+          <RoyalHaldiUrliIllustration size={135} />
+        </div>
       ),
     },
     {
@@ -74,6 +72,7 @@ export const CelebrationsTimeline: React.FC = () => {
       timeEn: t.mehndi.timeEn,
       tagline: t.mehndi.tagline,
       isMainWedding: false,
+      isHaldi: false,
       svgIcon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 mx-auto filter drop-shadow-md">
           <circle cx="50" cy="50" r="42" fill="#380710" stroke="#C6A15B" strokeWidth="2" />
@@ -102,6 +101,7 @@ export const CelebrationsTimeline: React.FC = () => {
       timeEn: t.wedding.timeEn,
       tagline: t.wedding.tagline,
       isMainWedding: true,
+      isHaldi: false,
       svgIcon: (
         <div className="w-full max-w-[280px] mx-auto py-1">
           <RoyalMandapIllustration className="w-full h-auto" />
@@ -193,6 +193,8 @@ export const CelebrationsTimeline: React.FC = () => {
       <div className="space-y-8 md:space-y-12">
         {events.map((evt, index) => {
           const isMain = evt.isMainWedding;
+          const isHaldi = evt.isHaldi;
+
           return (
             <motion.div
               key={evt.id}
@@ -202,127 +204,237 @@ export const CelebrationsTimeline: React.FC = () => {
               transition={{ duration: 0.8, delay: index * 0.15 }}
               className={`relative mx-auto w-full ${isMain ? 'max-w-4xl' : 'max-w-3xl'}`}
             >
-              {/* Special Glow for Main Wedding */}
+              {/* ─── SPECIAL GLOW ACCENTS ─── */}
+              {isHaldi && (
+                <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/30 via-yellow-400/40 to-amber-500/30 rounded-3xl blur-2xl opacity-90 pointer-events-none" />
+              )}
               {isMain && (
                 <div className="absolute -inset-2 bg-gradient-to-r from-gold-antique/20 via-gold-champagne/25 to-gold-antique/20 rounded-3xl blur-xl opacity-75 pointer-events-none" />
               )}
 
-              {/* Event Card Container */}
+              {/* ─── EVENT CARD CONTAINER ─── */}
               <div
-                className={`relative border-2 ${
-                  isMain
+                className={`relative border-2 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-md overflow-hidden transition-all duration-300 ${
+                  isHaldi
+                    ? 'border-amber-400/90 shadow-[0_0_35px_rgba(245,158,11,0.35)] bg-gradient-to-b from-[#321703]/98 via-[#220D02]/98 to-[#150602]/98'
+                    : isMain
                     ? 'border-gold-antique shadow-gold-lg bg-gradient-to-b from-maroon-deep via-maroon-burgundy to-maroon-darkest'
                     : 'border-gold-antique/60 shadow-xl bg-gradient-to-b from-maroon-deep/85 via-maroon-burgundy/90 to-maroon-darkest/95'
-                } rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-md overflow-hidden`}
+                }`}
               >
-                {/* Inner Gold Borders */}
-                <div className="absolute inset-2 border border-gold-champagne/30 rounded-2xl pointer-events-none" />
-                <div className="absolute inset-3 border border-gold-antique/15 rounded-xl pointer-events-none" />
+                {/* Inner Decorative Borders */}
+                <div
+                  className={`absolute inset-2 border rounded-2xl pointer-events-none ${
+                    isHaldi ? 'border-amber-300/45' : 'border-gold-champagne/30'
+                  }`}
+                />
+                <div
+                  className={`absolute inset-3.5 border rounded-xl pointer-events-none ${
+                    isHaldi ? 'border-yellow-500/25' : 'border-gold-antique/15'
+                  }`}
+                />
 
                 {/* Corner Ornaments */}
-                <CornerOrnament position="top-left" className="absolute top-2 left-2 opacity-75" size={isMain ? 34 : 26} />
-                <CornerOrnament position="top-right" className="absolute top-2 right-2 opacity-75" size={isMain ? 34 : 26} />
-                <CornerOrnament position="bottom-left" className="absolute bottom-2 left-2 opacity-75" size={isMain ? 34 : 26} />
-                <CornerOrnament position="bottom-right" className="absolute bottom-2 right-2 opacity-75" size={isMain ? 34 : 26} />
+                <CornerOrnament
+                  position="top-left"
+                  className={`absolute top-2 left-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  size={isMain ? 34 : 26}
+                />
+                <CornerOrnament
+                  position="top-right"
+                  className={`absolute top-2 right-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  size={isMain ? 34 : 26}
+                />
+                <CornerOrnament
+                  position="bottom-left"
+                  className={`absolute bottom-2 left-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  size={isMain ? 34 : 26}
+                />
+                <CornerOrnament
+                  position="bottom-right"
+                  className={`absolute bottom-2 right-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  size={isMain ? 34 : 26}
+                />
 
-                {/* Event Top Badge */}
+                {/* ─── EVENT TOP BADGE ─── */}
                 <div className="flex justify-center mb-4">
                   <div
-                    className={`inline-flex items-center gap-2 px-5 py-1.5 rounded-full border ${
-                      isMain
+                    className={`inline-flex items-center gap-2 px-5 py-1.5 rounded-full border shadow-sm ${
+                      isHaldi
+                        ? 'border-yellow-300 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-maroon-darkest font-extrabold shadow-[0_0_15px_rgba(245,158,11,0.5)]'
+                        : isMain
                         ? 'border-gold-champagne bg-maroon-deep text-gold-pale shadow-gold-sm'
                         : 'border-gold-antique/50 bg-maroon-darkest/80 text-gold-champagne'
                     }`}
                   >
-                    <Sparkles className="w-4 h-4 text-gold-antique" />
+                    <Sparkles className={`w-4 h-4 ${isHaldi ? 'text-maroon-darkest' : 'text-gold-antique'}`} />
                     <span className="font-devanagari text-xs md:text-sm font-bold tracking-widest uppercase leading-normal py-0.5">
-                      {t.karyakram} {index + 1}
+                      {isHaldi ? '॥ मांगलिक हल्दी समारोह • कार्यक्रम 1 ॥' : `${t.karyakram} ${index + 1}`}
                     </span>
+                    <Sparkles className={`w-4 h-4 ${isHaldi ? 'text-maroon-darkest' : 'text-gold-antique'}`} />
                   </div>
                 </div>
 
-                {/* Event Visual Illustration */}
+                {/* ─── EVENT VISUAL ILLUSTRATION ─── */}
                 <div className="my-3 flex justify-center">
                   {evt.svgIcon}
                 </div>
 
-                {/* Event Titles */}
+                {/* ─── EVENT TITLES ─── */}
                 <div className="text-center my-4">
                   <h3
-                    className={`font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide inline-block py-2 leading-normal ${
-                      isMain ? 'text-3xl sm:text-4xl md:text-5xl' : 'text-2xl sm:text-3xl md:text-4xl'
+                    className={`font-devanagari font-extrabold tracking-wide inline-block py-2 leading-normal ${
+                      isHaldi
+                        ? 'text-3xl sm:text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF0] via-[#FDE047] to-[#D97706] drop-shadow-[0_2px_14px_rgba(245,158,11,0.6)]'
+                        : isMain
+                        ? 'text-3xl sm:text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B]'
+                        : 'text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B]'
                     }`}
                   >
                     {evt.nameHi}
                   </h3>
-                  <p className="font-cormorant text-base sm:text-lg text-gold-champagne font-medium tracking-wider mt-1">
+                  <p
+                    className={`font-cormorant text-base sm:text-lg font-semibold tracking-wider mt-1 ${
+                      isHaldi ? 'text-amber-200' : 'text-gold-champagne'
+                    }`}
+                  >
                     {evt.nameEn}
                   </p>
-                  <p className="font-devanagari text-xs sm:text-sm text-cream/90 italic mt-1 leading-relaxed py-0.5">
-                    {evt.tagline}
-                  </p>
+
+                  {/* Haldi Tagline Banner */}
+                  <div className="mt-2 flex justify-center">
+                    <p
+                      className={`font-devanagari text-xs sm:text-sm leading-relaxed py-1 px-4 rounded-full border ${
+                        isHaldi
+                          ? 'bg-amber-950/80 border-amber-400/50 text-yellow-100 shadow-inner'
+                          : 'border-transparent text-cream/90 italic'
+                      }`}
+                    >
+                      {isHaldi ? `🌼 ${evt.tagline} 🌼` : evt.tagline}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="w-24 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-4" />
+                <div
+                  className={`w-24 h-[1.5px] mx-auto my-4 ${
+                    isHaldi
+                      ? 'bg-gradient-to-r from-transparent via-amber-400 to-transparent'
+                      : 'bg-gradient-to-r from-transparent via-gold-antique to-transparent'
+                  }`}
+                />
 
-                {/* Date & Time Grid */}
+                {/* ─── DATE & TIME GRID ─── */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto my-4">
-                  
                   {/* Date Column */}
-                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-maroon-darkest/70 border border-gold-antique/25">
-                    <div className="p-2 rounded-lg bg-maroon-deep border border-gold-antique/40 text-gold-champagne shrink-0">
-                      <Calendar className="w-5 h-5 text-gold-antique" />
+                  <div
+                    className={`flex items-center gap-3 p-3.5 rounded-2xl border transition-all ${
+                      isHaldi
+                        ? 'bg-gradient-to-br from-[#452204]/90 to-[#2A1402]/90 border-amber-400/50 shadow-md hover:border-amber-400'
+                        : 'bg-maroon-darkest/70 border-gold-antique/25'
+                    }`}
+                  >
+                    <div
+                      className={`p-2.5 rounded-xl border shrink-0 ${
+                        isHaldi
+                          ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-maroon-darkest border-yellow-200 shadow-sm'
+                          : 'bg-maroon-deep border-gold-antique/40 text-gold-champagne'
+                      }`}
+                    >
+                      <Calendar className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70 leading-normal">
+                      <span
+                        className={`block font-devanagari text-[11px] uppercase tracking-wider leading-normal ${
+                          isHaldi ? 'text-amber-300 font-semibold' : 'text-gold-champagne/70'
+                        }`}
+                      >
                         {t.dateLabel}
                       </span>
-                      <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-normal py-0.5">
+                      <p
+                        className={`font-devanagari text-sm sm:text-base font-semibold leading-normal py-0.5 ${
+                          isHaldi ? 'text-yellow-50' : 'text-cream'
+                        }`}
+                      >
                         {evt.dayHi}
                       </p>
-                      <p className="font-cormorant text-xs text-gold-champagne/80">
+                      <p className={`font-cormorant text-xs ${isHaldi ? 'text-amber-200' : 'text-gold-champagne/80'}`}>
                         {evt.dayEn}
                       </p>
                     </div>
                   </div>
 
                   {/* Time Column */}
-                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-maroon-darkest/70 border border-gold-antique/25">
-                    <div className="p-2 rounded-lg bg-maroon-deep border border-gold-antique/40 text-gold-champagne shrink-0">
-                      <Clock className="w-5 h-5 text-gold-antique" />
+                  <div
+                    className={`flex items-center gap-3 p-3.5 rounded-2xl border transition-all ${
+                      isHaldi
+                        ? 'bg-gradient-to-br from-[#452204]/90 to-[#2A1402]/90 border-amber-400/50 shadow-md hover:border-amber-400'
+                        : 'bg-maroon-darkest/70 border-gold-antique/25'
+                    }`}
+                  >
+                    <div
+                      className={`p-2.5 rounded-xl border shrink-0 ${
+                        isHaldi
+                          ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-maroon-darkest border-yellow-200 shadow-sm'
+                          : 'bg-maroon-deep border-gold-antique/40 text-gold-champagne'
+                      }`}
+                    >
+                      <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70 leading-normal">
-                        {t.timeLabel}
-                      </span>
-                      <p className="font-devanagari text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique leading-normal py-0.5 inline-block">
+                      <div className="flex items-center gap-1.5">
+                        <span
+                          className={`block font-devanagari text-[11px] uppercase tracking-wider leading-normal ${
+                            isHaldi ? 'text-amber-300 font-semibold' : 'text-gold-champagne/70'
+                          }`}
+                        >
+                          {t.timeLabel}
+                        </span>
+                        {isHaldi && (
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-400/30 text-yellow-300 font-devanagari">
+                            शुभ मुहूर्त
+                          </span>
+                        )}
+                      </div>
+                      <p
+                        className={`font-devanagari text-sm sm:text-base font-bold leading-normal py-0.5 inline-block ${
+                          isHaldi
+                            ? 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-300 to-amber-300'
+                            : 'text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique'
+                        }`}
+                      >
                         {evt.timeHi}
                       </p>
-                      <p className="font-cormorant text-xs text-gold-champagne/80">
+                      <p className={`font-cormorant text-xs ${isHaldi ? 'text-amber-200' : 'text-gold-champagne/80'}`}>
                         {evt.timeEn}
                       </p>
                     </div>
                   </div>
-
                 </div>
 
-                {/* Add to Calendar Button */}
+                {/* ─── ADD TO CALENDAR BUTTON ─── */}
                 <div className="flex justify-center mt-6">
                   <a
                     href={createGoogleCalendarUrl(
                       `Akshay & Vibhuti - ${evt.nameEn}`,
-                      evt.id === 'wedding' ? '20261125T070000' : evt.id === 'haldi' ? '20261124T100000' : '20261124T160000',
+                      evt.id === 'wedding'
+                        ? '20261125T070000'
+                        : evt.id === 'haldi'
+                        ? '20261124T100000'
+                        : '20261124T160000',
                       `Royal Jain Wedding of Akshay & Vibhuti. Ceremony: ${evt.nameHi} (${evt.nameEn}). Venue: Hotel Madurai, Udaipur, Rajasthan.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne transition-all duration-300 font-devanagari text-xs sm:text-sm font-semibold shadow-sm hover:shadow-gold-sm leading-normal"
+                    className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-devanagari text-xs sm:text-sm font-bold shadow-md transition-all duration-300 leading-normal hover:scale-[1.03] active:scale-[0.98] ${
+                      isHaldi
+                        ? 'border-2 border-yellow-300 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-maroon-darkest shadow-[0_4px_16px_rgba(245,158,11,0.4)] hover:shadow-[0_4px_24px_rgba(245,158,11,0.7)]'
+                        : 'border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne hover:shadow-gold-sm'
+                    }`}
                   >
                     <Calendar className="w-4 h-4" />
                     <span className="py-0.5">{t.addToCalendar}</span>
                   </a>
                 </div>
-
               </div>
             </motion.div>
           );
