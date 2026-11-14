@@ -36,11 +36,11 @@ export const Mangalacharan: React.FC = () => {
           </div>
 
           {/* Section Sub-heading */}
-          <div className="mb-4">
-            <span className="text-xs uppercase tracking-[0.25em] font-serif text-gold-champagne/80 block mb-1">
+          <div className="mb-4 flex flex-col items-center justify-center text-center">
+            <span className="text-xs uppercase tracking-[0.25em] font-serif text-gold-champagne/80 block mb-2 text-center">
               {t.sacredInscription}
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique block leading-normal py-1.5 text-center">
               {t.mangalacharanTitle}
             </h2>
           </div>

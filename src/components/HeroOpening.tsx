@@ -79,12 +79,12 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.9 }}
-            className="my-3 md:my-5"
+            className="my-3 md:my-5 flex flex-col items-center justify-center text-center"
           >
-            <span className="inline-block text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 mb-1">
+            <span className="block text-xs uppercase tracking-[0.25em] font-serif text-gold-champagne/80 mb-2 text-center">
               {t.royalWeddingLabel}
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#E8D5A7] to-[#C6A15B] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] inline-block leading-normal py-1.5">
+            <h1 className="block text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#E8D5A7] to-[#C6A15B] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-normal py-1.5 text-center">
               {t.shubhVivah}
             </h1>
           </motion.div>

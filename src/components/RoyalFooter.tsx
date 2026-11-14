@@ -39,12 +39,14 @@ export const RoyalFooter: React.FC = () => {
           </div>
 
           {/* Footer Heading: शुभ विवाह */}
-          <h3 className="text-2xl sm:text-3xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique tracking-wide mb-1 inline-block leading-normal py-1.5">
-            {t.footerShubhVivah}
-          </h3>
-          <p className="font-cormorant text-xs uppercase tracking-[0.25em] text-gold-champagne/70 font-medium">
-            {t.footerSubtitle}
-          </p>
+          <div className="flex flex-col items-center justify-center text-center">
+            <h3 className="text-2xl sm:text-3xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique tracking-wide mb-1 block leading-normal py-1.5 text-center">
+              {t.footerShubhVivah}
+            </h3>
+            <p className="font-cormorant text-xs uppercase tracking-[0.25em] text-gold-champagne/70 font-medium text-center">
+              {t.footerSubtitle}
+            </p>
+          </div>
 
           <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
 
