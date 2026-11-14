@@ -57,25 +57,14 @@ export const Mangalacharan: React.FC = () => {
           </div>
 
           {/* English Meaning of the Sacred Shloka for Universal Appreciation */}
-          <p className="font-cormorant italic text-xs sm:text-sm text-gold-champagne/80 max-w-xl mx-auto mb-6">
+          <p className="font-cormorant italic text-xs sm:text-sm text-gold-champagne/80 max-w-xl mx-auto mb-4">
             {t.mangalacharanMeaning}
           </p>
 
           <GoldDivider className="my-4 max-w-xs mx-auto" />
 
-          {/* Sacred Invitation Message */}
-          <div className="mt-6 max-w-2xl mx-auto">
-            <p className="font-devanagari text-base sm:text-lg md:text-xl text-cream/95 leading-[1.8] md:leading-[2] py-1">
-              {t.invitationMsg}
-            </p>
-
-            <p className="font-cormorant text-xs sm:text-sm text-gold-champagne/70 mt-3 tracking-wide">
-              {t.invitationMsgEn}
-            </p>
-          </div>
-
           {/* Bottom Auspicious Blessing Mark */}
-          <div className="mt-8 flex justify-center items-center gap-3 text-gold-antique text-sm">
+          <div className="mt-6 flex justify-center items-center gap-3 text-gold-antique text-sm">
             <span>卐</span>
             <span className="font-devanagari text-xs tracking-widest text-gold-champagne leading-normal py-0.5">
               {t.jainValues}
