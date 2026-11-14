@@ -722,3 +722,104 @@ export const RoyalGathbandhanIcon: React.FC<{ className?: string; size?: number 
   );
 };
 
+// 14. Royal Mehndi Henna Art Illustration (पारंपरिक सतरंगी मेहंदी रचाई एवं मयूर केरी)
+export const RoyalMehndiIllustration: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 120 }) => {
+  const gradId = `mehndi-green-${Math.random().toString(36).substr(2, 9)}`;
+  return (
+    <svg width={size} height={size * 0.75} viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <radialGradient id={`${gradId}-glow`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#10B981" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#047857" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={`${gradId}-gold`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFF8E7" />
+          <stop offset="40%" stopColor="#FDE047" />
+          <stop offset="70%" stopColor="#C6A15B" />
+          <stop offset="100%" stopColor="#854D0E" />
+        </linearGradient>
+        <linearGradient id={`${gradId}-emerald`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#A7F3D0" />
+          <stop offset="50%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#064E3B" />
+        </linearGradient>
+      </defs>
+
+      {/* Ambient Emerald Green Glow */}
+      <ellipse cx="80" cy="62" rx="68" ry="36" fill={`url(#${gradId}-glow)`} />
+
+      {/* Outer Henna Medallion Ring with Dots */}
+      <circle cx="80" cy="60" r="44" stroke={`url(#${gradId}-gold)`} strokeWidth="1.5" strokeDasharray="3 3" opacity="0.7" />
+      <circle cx="80" cy="60" r="40" stroke="#34D399" strokeWidth="1" opacity="0.5" />
+
+      {/* Traditional Intricate Royal Paisley (केरी / Kalka) Motif */}
+      <path
+        d="M 80 24 C 60 24 50 42 56 60 C 62 72 74 80 84 80 C 96 80 106 68 100 52 C 96 38 86 34 86 26 C 86 20 83 20 80 24 Z"
+        fill="#064E3B"
+        stroke={`url(#${gradId}-gold)`}
+        strokeWidth="2.5"
+      />
+
+      {/* Inner Paisley Lace & Leaf Details */}
+      <path
+        d="M 78 32 C 68 34 62 46 66 58 C 70 66 78 72 84 72 C 92 72 98 64 94 54 C 90 44 82 40 82 34 Z"
+        fill="#047857"
+        stroke="#A7F3D0"
+        strokeWidth="1.2"
+      />
+
+      {/* Central Sacred Floral Core */}
+      <circle cx="78" cy="52" r="7" fill={`url(#${gradId}-gold)`} />
+      <circle cx="78" cy="52" r="4" fill="#064E3B" />
+      <circle cx="78" cy="52" r="2" fill="#FFF8E7" />
+
+      {/* Delicate Henna Petals around core */}
+      <circle cx="72" cy="48" r="2.5" fill="#34D399" />
+      <circle cx="84" cy="48" r="2.5" fill="#34D399" />
+      <circle cx="84" cy="56" r="2.5" fill="#34D399" />
+      <circle cx="72" cy="56" r="2.5" fill="#34D399" />
+      <circle cx="78" cy="44" r="2.5" fill="#FDE047" />
+      <circle cx="78" cy="60" r="2.5" fill="#FDE047" />
+
+      {/* Traditional Henna Cone (मेहंदी की कुप्पी / कोन) */}
+      <g transform="translate(112, 42) rotate(32)">
+        {/* Cone Body */}
+        <path d="M 0 0 L 8 42 L -8 42 Z" fill={`url(#${gradId}-gold)`} stroke="#10B981" strokeWidth="1" />
+        <ellipse cx="0" cy="42" rx="8" ry="3" fill="#047857" />
+        {/* Cone Tip */}
+        <circle cx="0" cy="-2" r="1.5" fill="#064E3B" />
+        {/* Ribbon on cone */}
+        <rect x="-7" y="24" width="14" height="4" fill="#10B981" rx="1" />
+      </g>
+
+      {/* Henna Swirl Flourishes Left */}
+      <path
+        d="M 44 54 C 36 50 32 60 40 68 C 46 72 52 68 50 62"
+        stroke={`url(#${gradId}-gold)`}
+        strokeWidth="2"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="36" cy="52" r="2" fill="#34D399" />
+      <circle cx="48" cy="72" r="1.5" fill="#FDE047" />
+
+      {/* Henna Swirl Flourishes Right */}
+      <path
+        d="M 116 58 C 122 52 126 62 120 70 C 114 74 108 70 110 64"
+        stroke={`url(#${gradId}-gold)`}
+        strokeWidth="2"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="124" cy="54" r="2" fill="#34D399" />
+      <circle cx="112" cy="74" r="1.5" fill="#FDE047" />
+
+      {/* Sacred Dots & Henna Bindis */}
+      <circle cx="80" cy="20" r="2.5" fill="#FDE047" />
+      <circle cx="76" cy="16" r="1.5" fill="#34D399" />
+      <circle cx="84" cy="16" r="1.5" fill="#34D399" />
+      <circle cx="80" cy="12" r="1.2" fill="#FFF8E7" />
+    </svg>
+  );
+};
+

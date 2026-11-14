@@ -5,6 +5,7 @@ import {
   GoldDivider,
   RoyalMandapIllustration,
   RoyalHaldiUrliIllustration,
+  RoyalMehndiIllustration,
 } from './OrnamentalSVGs';
 import { Calendar, Clock, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -12,7 +13,7 @@ import { useLanguage } from '../context/LanguageContext';
 export const CelebrationsTimeline: React.FC = () => {
   const { t } = useLanguage();
 
-  // Countdown to Royal Wedding: 25 November 2026, 07:00 AM IST
+  // Countdown to Royal Wedding: 25 November 2026, 09:00 AM IST
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -56,6 +57,7 @@ export const CelebrationsTimeline: React.FC = () => {
       tagline: t.haldi.tagline,
       isMainWedding: false,
       isHaldi: true,
+      isMehndi: false,
       svgIcon: (
         <div className="w-full flex justify-center py-2">
           <RoyalHaldiUrliIllustration size={135} />
@@ -73,22 +75,11 @@ export const CelebrationsTimeline: React.FC = () => {
       tagline: t.mehndi.tagline,
       isMainWedding: false,
       isHaldi: false,
+      isMehndi: true,
       svgIcon: (
-        <svg viewBox="0 0 100 100" className="w-16 h-16 mx-auto filter drop-shadow-md">
-          <circle cx="50" cy="50" r="42" fill="#380710" stroke="#C6A15B" strokeWidth="2" />
-          <path
-            d="M 50 22 C 34 22 28 38 34 54 C 38 64 50 72 58 72 C 68 72 74 62 70 48 C 66 36 58 32 58 24 C 58 18 54 18 50 22 Z"
-            fill="none"
-            stroke="#C6A15B"
-            strokeWidth="2.5"
-          />
-          <circle cx="48" cy="46" r="6" fill="#C6A15B" />
-          <circle cx="56" cy="54" r="3" fill="#E6D3A3" />
-          <circle cx="40" cy="56" r="3" fill="#E6D3A3" />
-          <circle cx="50" cy="24" r="1.5" fill="#FFF8E7" />
-          <circle cx="36" cy="36" r="2" fill="#C6A15B" />
-          <circle cx="64" cy="42" r="2" fill="#C6A15B" />
-        </svg>
+        <div className="w-full flex justify-center py-2">
+          <RoyalMehndiIllustration size={135} />
+        </div>
       ),
     },
     {
@@ -102,6 +93,7 @@ export const CelebrationsTimeline: React.FC = () => {
       tagline: t.wedding.tagline,
       isMainWedding: true,
       isHaldi: false,
+      isMehndi: false,
       svgIcon: (
         <div className="w-full max-w-[280px] mx-auto py-1">
           <RoyalMandapIllustration className="w-full h-auto" />
@@ -194,6 +186,7 @@ export const CelebrationsTimeline: React.FC = () => {
         {events.map((evt, index) => {
           const isMain = evt.isMainWedding;
           const isHaldi = evt.isHaldi;
+          const isMehndi = evt.isMehndi;
 
           return (
             <motion.div
@@ -208,6 +201,9 @@ export const CelebrationsTimeline: React.FC = () => {
               {isHaldi && (
                 <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/30 via-yellow-400/40 to-amber-500/30 rounded-3xl blur-2xl opacity-90 pointer-events-none" />
               )}
+              {isMehndi && (
+                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/30 via-green-400/40 to-teal-500/30 rounded-3xl blur-2xl opacity-90 pointer-events-none" />
+              )}
               {isMain && (
                 <div className="absolute -inset-2 bg-gradient-to-r from-gold-antique/20 via-gold-champagne/25 to-gold-antique/20 rounded-3xl blur-xl opacity-75 pointer-events-none" />
               )}
@@ -217,6 +213,8 @@ export const CelebrationsTimeline: React.FC = () => {
                 className={`relative border-2 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-md overflow-hidden transition-all duration-300 ${
                   isHaldi
                     ? 'border-amber-400/90 shadow-[0_0_35px_rgba(245,158,11,0.35)] bg-gradient-to-b from-[#321703]/98 via-[#220D02]/98 to-[#150602]/98'
+                    : isMehndi
+                    ? 'border-emerald-400/90 shadow-[0_0_35px_rgba(16,185,129,0.35)] bg-gradient-to-b from-[#082915]/98 via-[#041E0F]/98 to-[#021208]/98'
                     : isMain
                     ? 'border-gold-antique shadow-gold-lg bg-gradient-to-b from-maroon-deep via-maroon-burgundy to-maroon-darkest'
                     : 'border-gold-antique/60 shadow-xl bg-gradient-to-b from-maroon-deep/85 via-maroon-burgundy/90 to-maroon-darkest/95'
@@ -225,34 +223,66 @@ export const CelebrationsTimeline: React.FC = () => {
                 {/* Inner Decorative Borders */}
                 <div
                   className={`absolute inset-2 border rounded-2xl pointer-events-none ${
-                    isHaldi ? 'border-amber-300/45' : 'border-gold-champagne/30'
+                    isHaldi
+                      ? 'border-amber-300/45'
+                      : isMehndi
+                      ? 'border-emerald-300/45'
+                      : 'border-gold-champagne/30'
                   }`}
                 />
                 <div
                   className={`absolute inset-3.5 border rounded-xl pointer-events-none ${
-                    isHaldi ? 'border-yellow-500/25' : 'border-gold-antique/15'
+                    isHaldi
+                      ? 'border-yellow-500/25'
+                      : isMehndi
+                      ? 'border-green-500/25'
+                      : 'border-gold-antique/15'
                   }`}
                 />
 
                 {/* Corner Ornaments */}
                 <CornerOrnament
                   position="top-left"
-                  className={`absolute top-2 left-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  className={`absolute top-2 left-2 ${
+                    isHaldi
+                      ? 'text-amber-300 opacity-90'
+                      : isMehndi
+                      ? 'text-emerald-300 opacity-90'
+                      : 'opacity-75'
+                  }`}
                   size={isMain ? 34 : 26}
                 />
                 <CornerOrnament
                   position="top-right"
-                  className={`absolute top-2 right-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  className={`absolute top-2 right-2 ${
+                    isHaldi
+                      ? 'text-amber-300 opacity-90'
+                      : isMehndi
+                      ? 'text-emerald-300 opacity-90'
+                      : 'opacity-75'
+                  }`}
                   size={isMain ? 34 : 26}
                 />
                 <CornerOrnament
                   position="bottom-left"
-                  className={`absolute bottom-2 left-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  className={`absolute bottom-2 left-2 ${
+                    isHaldi
+                      ? 'text-amber-300 opacity-90'
+                      : isMehndi
+                      ? 'text-emerald-300 opacity-90'
+                      : 'opacity-75'
+                  }`}
                   size={isMain ? 34 : 26}
                 />
                 <CornerOrnament
                   position="bottom-right"
-                  className={`absolute bottom-2 right-2 ${isHaldi ? 'text-amber-300 opacity-90' : 'opacity-75'}`}
+                  className={`absolute bottom-2 right-2 ${
+                    isHaldi
+                      ? 'text-amber-300 opacity-90'
+                      : isMehndi
+                      ? 'text-emerald-300 opacity-90'
+                      : 'opacity-75'
+                  }`}
                   size={isMain ? 34 : 26}
                 />
 
@@ -262,16 +292,30 @@ export const CelebrationsTimeline: React.FC = () => {
                     className={`inline-flex items-center gap-2 px-5 py-1.5 rounded-full border shadow-sm ${
                       isHaldi
                         ? 'border-yellow-300 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-maroon-darkest font-extrabold shadow-[0_0_15px_rgba(245,158,11,0.5)]'
+                        : isMehndi
+                        ? 'border-emerald-300 bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-600 text-white font-extrabold shadow-[0_0_15px_rgba(16,185,129,0.5)]'
                         : isMain
                         ? 'border-gold-champagne bg-maroon-deep text-gold-pale shadow-gold-sm'
                         : 'border-gold-antique/50 bg-maroon-darkest/80 text-gold-champagne'
                     }`}
                   >
-                    <Sparkles className={`w-4 h-4 ${isHaldi ? 'text-maroon-darkest' : 'text-gold-antique'}`} />
+                    <Sparkles
+                      className={`w-4 h-4 ${
+                        isHaldi ? 'text-maroon-darkest' : isMehndi ? 'text-emerald-100' : 'text-gold-antique'
+                      }`}
+                    />
                     <span className="font-devanagari text-xs md:text-sm font-bold tracking-widest uppercase leading-normal py-0.5">
-                      {isHaldi ? '॥ मांगलिक हल्दी समारोह • कार्यक्रम 1 ॥' : `${t.karyakram} ${index + 1}`}
+                      {isHaldi
+                        ? '॥ मांगलिक हल्दी समारोह • कार्यक्रम 1 ॥'
+                        : isMehndi
+                        ? '॥ रंगीलो मेहंदी समारोह • कार्यक्रम 2 ॥'
+                        : `${t.karyakram} ${index + 1}`}
                     </span>
-                    <Sparkles className={`w-4 h-4 ${isHaldi ? 'text-maroon-darkest' : 'text-gold-antique'}`} />
+                    <Sparkles
+                      className={`w-4 h-4 ${
+                        isHaldi ? 'text-maroon-darkest' : isMehndi ? 'text-emerald-100' : 'text-gold-antique'
+                      }`}
+                    />
                   </div>
                 </div>
 
@@ -286,6 +330,8 @@ export const CelebrationsTimeline: React.FC = () => {
                     className={`font-devanagari font-extrabold tracking-wide inline-block py-2 leading-normal ${
                       isHaldi
                         ? 'text-3xl sm:text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF0] via-[#FDE047] to-[#D97706] drop-shadow-[0_2px_14px_rgba(245,158,11,0.6)]'
+                        : isMehndi
+                        ? 'text-3xl sm:text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-[#F0FDF4] via-[#86EFAC] to-[#15803D] drop-shadow-[0_2px_14px_rgba(34,197,94,0.5)]'
                         : isMain
                         ? 'text-3xl sm:text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B]'
                         : 'text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B]'
@@ -295,22 +341,32 @@ export const CelebrationsTimeline: React.FC = () => {
                   </h3>
                   <p
                     className={`font-cormorant text-base sm:text-lg font-semibold tracking-wider mt-1 ${
-                      isHaldi ? 'text-amber-200' : 'text-gold-champagne'
+                      isHaldi
+                        ? 'text-amber-200'
+                        : isMehndi
+                        ? 'text-emerald-200'
+                        : 'text-gold-champagne'
                     }`}
                   >
                     {evt.nameEn}
                   </p>
 
-                  {/* Haldi Tagline Banner */}
+                  {/* Tagline Banner */}
                   <div className="mt-2 flex justify-center">
                     <p
                       className={`font-devanagari text-xs sm:text-sm leading-relaxed py-1 px-4 rounded-full border ${
                         isHaldi
                           ? 'bg-amber-950/80 border-amber-400/50 text-yellow-100 shadow-inner'
+                          : isMehndi
+                          ? 'bg-emerald-950/80 border-emerald-400/50 text-emerald-100 shadow-inner'
                           : 'border-transparent text-cream/90 italic'
                       }`}
                     >
-                      {isHaldi ? `🌼 ${evt.tagline} 🌼` : evt.tagline}
+                      {isHaldi
+                        ? `🌼 ${evt.tagline} 🌼`
+                        : isMehndi
+                        ? `🌿 ${evt.tagline} 🌿`
+                        : evt.tagline}
                     </p>
                   </div>
                 </div>
@@ -319,6 +375,8 @@ export const CelebrationsTimeline: React.FC = () => {
                   className={`w-24 h-[1.5px] mx-auto my-4 ${
                     isHaldi
                       ? 'bg-gradient-to-r from-transparent via-amber-400 to-transparent'
+                      : isMehndi
+                      ? 'bg-gradient-to-r from-transparent via-emerald-400 to-transparent'
                       : 'bg-gradient-to-r from-transparent via-gold-antique to-transparent'
                   }`}
                 />
@@ -330,6 +388,8 @@ export const CelebrationsTimeline: React.FC = () => {
                     className={`flex items-center gap-3 p-3.5 rounded-2xl border transition-all ${
                       isHaldi
                         ? 'bg-gradient-to-br from-[#452204]/90 to-[#2A1402]/90 border-amber-400/50 shadow-md hover:border-amber-400'
+                        : isMehndi
+                        ? 'bg-gradient-to-br from-[#0B351C]/90 to-[#052010]/90 border-emerald-400/50 shadow-md hover:border-emerald-400'
                         : 'bg-maroon-darkest/70 border-gold-antique/25'
                     }`}
                   >
@@ -337,6 +397,8 @@ export const CelebrationsTimeline: React.FC = () => {
                       className={`p-2.5 rounded-xl border shrink-0 ${
                         isHaldi
                           ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-maroon-darkest border-yellow-200 shadow-sm'
+                          : isMehndi
+                          ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-maroon-darkest border-emerald-200 shadow-sm'
                           : 'bg-maroon-deep border-gold-antique/40 text-gold-champagne'
                       }`}
                     >
@@ -345,19 +407,27 @@ export const CelebrationsTimeline: React.FC = () => {
                     <div>
                       <span
                         className={`block font-devanagari text-[11px] uppercase tracking-wider leading-normal ${
-                          isHaldi ? 'text-amber-300 font-semibold' : 'text-gold-champagne/70'
+                          isHaldi
+                            ? 'text-amber-300 font-semibold'
+                            : isMehndi
+                            ? 'text-emerald-300 font-semibold'
+                            : 'text-gold-champagne/70'
                         }`}
                       >
                         {t.dateLabel}
                       </span>
                       <p
                         className={`font-devanagari text-sm sm:text-base font-semibold leading-normal py-0.5 ${
-                          isHaldi ? 'text-yellow-50' : 'text-cream'
+                          isHaldi ? 'text-yellow-50' : isMehndi ? 'text-emerald-50' : 'text-cream'
                         }`}
                       >
                         {evt.dayHi}
                       </p>
-                      <p className={`font-cormorant text-xs ${isHaldi ? 'text-amber-200' : 'text-gold-champagne/80'}`}>
+                      <p
+                        className={`font-cormorant text-xs ${
+                          isHaldi ? 'text-amber-200' : isMehndi ? 'text-emerald-200' : 'text-gold-champagne/80'
+                        }`}
+                      >
                         {evt.dayEn}
                       </p>
                     </div>
@@ -368,6 +438,8 @@ export const CelebrationsTimeline: React.FC = () => {
                     className={`flex items-center gap-3 p-3.5 rounded-2xl border transition-all ${
                       isHaldi
                         ? 'bg-gradient-to-br from-[#452204]/90 to-[#2A1402]/90 border-amber-400/50 shadow-md hover:border-amber-400'
+                        : isMehndi
+                        ? 'bg-gradient-to-br from-[#0B351C]/90 to-[#052010]/90 border-emerald-400/50 shadow-md hover:border-emerald-400'
                         : 'bg-maroon-darkest/70 border-gold-antique/25'
                     }`}
                   >
@@ -375,6 +447,8 @@ export const CelebrationsTimeline: React.FC = () => {
                       className={`p-2.5 rounded-xl border shrink-0 ${
                         isHaldi
                           ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-maroon-darkest border-yellow-200 shadow-sm'
+                          : isMehndi
+                          ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-maroon-darkest border-emerald-200 shadow-sm'
                           : 'bg-maroon-deep border-gold-antique/40 text-gold-champagne'
                       }`}
                     >
@@ -384,7 +458,11 @@ export const CelebrationsTimeline: React.FC = () => {
                       <div className="flex items-center gap-1.5">
                         <span
                           className={`block font-devanagari text-[11px] uppercase tracking-wider leading-normal ${
-                            isHaldi ? 'text-amber-300 font-semibold' : 'text-gold-champagne/70'
+                            isHaldi
+                              ? 'text-amber-300 font-semibold'
+                              : isMehndi
+                              ? 'text-emerald-300 font-semibold'
+                              : 'text-gold-champagne/70'
                           }`}
                         >
                           {t.timeLabel}
@@ -394,17 +472,28 @@ export const CelebrationsTimeline: React.FC = () => {
                             शुभ मुहूर्त
                           </span>
                         )}
+                        {isMehndi && (
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-400/30 text-emerald-200 font-devanagari">
+                            शुभ संध्या
+                          </span>
+                        )}
                       </div>
                       <p
                         className={`font-devanagari text-sm sm:text-base font-bold leading-normal py-0.5 inline-block ${
                           isHaldi
                             ? 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-300 to-amber-300'
+                            : isMehndi
+                            ? 'text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-green-300 to-emerald-400'
                             : 'text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique'
                         }`}
                       >
                         {evt.timeHi}
                       </p>
-                      <p className={`font-cormorant text-xs ${isHaldi ? 'text-amber-200' : 'text-gold-champagne/80'}`}>
+                      <p
+                        className={`font-cormorant text-xs ${
+                          isHaldi ? 'text-amber-200' : isMehndi ? 'text-emerald-200' : 'text-gold-champagne/80'
+                        }`}
+                      >
                         {evt.timeEn}
                       </p>
                     </div>
@@ -428,6 +517,8 @@ export const CelebrationsTimeline: React.FC = () => {
                     className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-devanagari text-xs sm:text-sm font-bold shadow-md transition-all duration-300 leading-normal hover:scale-[1.03] active:scale-[0.98] ${
                       isHaldi
                         ? 'border-2 border-yellow-300 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-maroon-darkest shadow-[0_4px_16px_rgba(245,158,11,0.4)] hover:shadow-[0_4px_24px_rgba(245,158,11,0.7)]'
+                        : isMehndi
+                        ? 'border-2 border-emerald-300 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-400 hover:to-green-400 text-white shadow-[0_4px_16px_rgba(16,185,129,0.4)] hover:shadow-[0_4px_24px_rgba(16,185,129,0.7)]'
                         : 'border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne hover:shadow-gold-sm'
                     }`}
                   >
