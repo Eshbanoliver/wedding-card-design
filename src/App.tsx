@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import { RoyalBackground } from './components/RoyalBackground';
 import { ToranHeader } from './components/ToranHeader';
 import { HeroOpening } from './components/HeroOpening';
@@ -11,6 +12,7 @@ import { GrandClosing } from './components/GrandClosing';
 import { RoyalFooter } from './components/RoyalFooter';
 import { MusicPlayer } from './components/MusicPlayer';
 import { ShareControls } from './components/ShareControls';
+import { LanguageToggle } from './components/LanguageToggle';
 import { triggerPetalShower } from './components/PetalShower';
 
 export const App: React.FC = () => {
@@ -30,44 +32,48 @@ export const App: React.FC = () => {
   };
 
   return (
-    <RoyalBackground>
-      {/* Top Auspicious Toran with Hanging Bells */}
-      <ToranHeader />
+    <LanguageProvider>
+      <RoyalBackground>
+        {/* Top Auspicious Toran with Hanging Bells */}
+        <ToranHeader />
 
-      {/* Floating Top Controls (WhatsApp Share, Petal Shower, Copy Link) */}
-      <ShareControls />
+        {/* Floating Top Controls (WhatsApp Share, Petal Shower, Copy Link) */}
+        <ShareControls />
 
-      <main className="w-full flex flex-col items-center">
-        {/* Section 1: Grand Opening Screen */}
-        <HeroOpening onOpenInvitation={handleOpenInvitation} isOpen={isOpen} />
+        {/* Fixed Left-Side Language Toggle (हिंदी / ENG) */}
+        <LanguageToggle />
 
-        {/* Section 2: Sacred Jain Mangalacharan */}
-        <Mangalacharan />
+        <main className="w-full flex flex-col items-center">
+          {/* Section 1: Grand Opening Screen */}
+          <HeroOpening onOpenInvitation={handleOpenInvitation} isOpen={isOpen} />
 
-        {/* Section 3: Royal Couple Introduction (वर एवं वधु) */}
-        <CoupleSection />
+          {/* Section 2: Sacred Jain Mangalacharan */}
+          <Mangalacharan />
 
-        {/* Section 4: Wedding Celebrations Timeline (हल्दी, मेहंदी, शुभ विवाह + Countdown) */}
-        <CelebrationsTimeline />
+          {/* Section 3: Royal Couple Introduction (वर एवं वधु) */}
+          <CoupleSection />
 
-        {/* Section 5: Royal Wedding Venue & Google Maps Navigation (Hotel Madurai, Udaipur) */}
-        <VenueSection />
+          {/* Section 4: Wedding Celebrations Timeline (हल्दी, मेहंदी, शुभ विवाह + Countdown) */}
+          <CelebrationsTimeline />
 
-        {/* Section 6: Family Welcome (सादर स्वागत एवं अभिनंदन) */}
-        <FamilyWelcome />
+          {/* Section 5: Royal Wedding Venue & Google Maps Navigation (Hotel Madurai, Udaipur) */}
+          <VenueSection />
 
-        {/* Section 7: Grand Closing Invitation */}
-        <GrandClosing />
-      </main>
+          {/* Section 6: Family Welcome (सादर स्वागत एवं अभिनंदन) */}
+          <FamilyWelcome />
 
-      {/* Section 8: Royal Footer with Continuous Background */}
-      <RoyalFooter />
+          {/* Section 7: Grand Closing Invitation */}
+          <GrandClosing />
+        </main>
 
-      {/* Floating Royal Shehnai Music Control */}
-      <MusicPlayer autoPlayTrigger={musicTrigger} />
-    </RoyalBackground>
+        {/* Section 8: Royal Footer with Continuous Background */}
+        <RoyalFooter />
+
+        {/* Floating Namokar Mantra Music Control (bottom-right) */}
+        <MusicPlayer autoPlayTrigger={musicTrigger} />
+      </RoyalBackground>
+    </LanguageProvider>
   );
 };
 
 export default App;
-

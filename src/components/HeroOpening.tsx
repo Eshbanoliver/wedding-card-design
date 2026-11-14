@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { JainSymbol, CornerOrnament, SacredDiya } from './OrnamentalSVGs';
 import { Sparkles, Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroOpeningProps {
   onOpenInvitation: () => void;
@@ -9,6 +10,8 @@ interface HeroOpeningProps {
 }
 
 export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-8 md:py-16 overflow-hidden">
       {/* Decorative Traditional Toran / Arch Accent at top of Hero */}
@@ -53,7 +56,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               transition={{ delay: 0.7, duration: 0.8 }}
               className="text-xs md:text-sm font-devanagari text-gold-champagne tracking-widest mt-1 opacity-90 leading-relaxed py-1"
             >
-              ॥ ॐ श्री ऋषभदेवाय नमः ॥
+              {t.invocation}
             </motion.p>
           </motion.div>
 
@@ -79,10 +82,10 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             className="my-3 md:my-5"
           >
             <span className="inline-block text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 mb-1">
-              Royal Wedding Invitation
+              {t.royalWeddingLabel}
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#E8D5A7] to-[#C6A15B] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] inline-block leading-normal py-1.5">
-              शुभ विवाह
+              {t.shubhVivah}
             </h1>
           </motion.div>
 
@@ -98,7 +101,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
 
             <div className="relative flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 py-2">
               <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFF9EA] via-[#E6D3A3] to-[#C6A15B] tracking-wider drop-shadow-md inline-block py-2 leading-normal">
-                अक्षय
+                {t.groomName}
               </span>
 
               <motion.div
@@ -110,12 +113,12 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               </motion.div>
 
               <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#C6A15B] via-[#E6D3A3] to-[#FFF9EA] tracking-wider drop-shadow-md inline-block py-2 leading-normal">
-                विभूति
+                {t.brideName}
               </span>
             </div>
 
             <p className="text-xs sm:text-sm font-cormorant tracking-[0.25em] uppercase text-gold-champagne/90 mt-2 font-medium">
-              Akshay &amp; Vibhuti
+              {t.groomNameEn} &amp; {t.brideNameEn}
             </p>
           </motion.div>
 
@@ -126,11 +129,11 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             transition={{ delay: 1.7, duration: 0.8 }}
             className="my-4 text-xs sm:text-sm font-devanagari text-cream/90 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 leading-relaxed py-1"
           >
-            <span>मंगलवार, 24 नवंबर 2026</span>
+            <span>{t.date1}</span>
             <span className="text-gold-antique">•</span>
-            <span>बुधवार, 25 नवंबर 2026</span>
+            <span>{t.date2}</span>
             <span className="text-gold-antique">•</span>
-            <span>उदयपुर, राजस्थान</span>
+            <span>{t.venueCity}</span>
           </motion.div>
 
           {/* 4. Grand Opening Button: "आमंत्रण देखें" */}
@@ -153,10 +156,10 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               
               <Sparkles className="w-5 h-5 text-maroon-darkest group-hover:rotate-12 transition-transform duration-300" />
               <span className="relative z-10 font-extrabold tracking-wider py-0.5 leading-normal">
-                आमंत्रण देखें
+                {t.openBtn}
               </span>
               <span className="relative z-10 text-xs font-serif font-normal uppercase tracking-widest text-maroon-deep/90 border-l border-maroon-deep/30 pl-2">
-                Open Invitation
+                {t.openBtnSub}
               </span>
             </button>
 
@@ -165,7 +168,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               transition={{ repeat: Infinity, duration: 2.5 }}
               className="text-[11px] font-devanagari text-gold-champagne/75 mt-3 tracking-wider leading-relaxed"
             >
-              ↓ नीचे स्क्रॉल करें अथवा बटन दबाएं
+              {t.scrollHint}
             </motion.p>
           </motion.div>
 
@@ -174,4 +177,3 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
     </section>
   );
 };
-

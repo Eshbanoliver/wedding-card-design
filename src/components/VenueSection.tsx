@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CornerOrnament, GoldDivider } from './OrnamentalSVGs';
 import { MapPin, Navigation, Copy, Check, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const VenueSection: React.FC = () => {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const venueName = 'Hotel Madurai';
   const fullAddress = '118 Hotel Street, Udaipole Road Behind HDFC Bank, Udaipole, Shrinath Market, Udaipur, Rajasthan 313001';
   
-  // Exact Google Maps query URL
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${venueName}, ${fullAddress}`
   )}`;
@@ -31,13 +32,13 @@ export const VenueSection: React.FC = () => {
         className="text-center mb-10 md:mb-14"
       >
         <span className="text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 block mb-1">
-          Wedding Destination
+          {t.weddingDestination}
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
-          विवाह स्थल
+          {t.vivahSthal}
         </h2>
         <p className="text-xs sm:text-sm font-cormorant tracking-widest uppercase text-gold-champagne/80 mt-2 font-medium">
-          Royal Venue &amp; Directions
+          {t.venueTagline}
         </p>
         <GoldDivider className="max-w-xs mx-auto mt-4" />
       </motion.div>
@@ -72,12 +73,7 @@ export const VenueSection: React.FC = () => {
               />
               <circle cx="50" cy="8" r="3" fill="#FFF8E7" />
               <rect x="20" y="40" width="60" height="28" fill="#380710" stroke="#C6A15B" strokeWidth="1.5" />
-              {/* Palace Arch Doorway */}
-              <path
-                d="M 42 68 L 42 50 C 42 45 58 45 58 50 L 58 68 Z"
-                fill="#C6A15B"
-              />
-              {/* Pillars */}
+              <path d="M 42 68 L 42 50 C 42 45 58 45 58 50 L 58 68 Z" fill="#C6A15B" />
               <line x1="26" y1="40" x2="26" y2="68" stroke="#E6D3A3" strokeWidth="1.5" />
               <line x1="74" y1="40" x2="74" y2="68" stroke="#E6D3A3" strokeWidth="1.5" />
             </svg>
@@ -86,13 +82,13 @@ export const VenueSection: React.FC = () => {
           {/* Venue Name */}
           <div className="my-2">
             <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 block mb-1 leading-normal py-0.5">
-              ॥ शुभ विवाह वेदी ॥
+              {t.vivahVedi}
             </span>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-playfair font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
               {venueName}
             </h3>
             <p className="font-devanagari text-base sm:text-lg text-cream/90 font-medium mt-1 leading-normal py-0.5">
-              होटल मदुरै, उदयपुर
+              {t.venueNameHi}
             </p>
           </div>
 
@@ -103,12 +99,12 @@ export const VenueSection: React.FC = () => {
             <div className="flex items-start justify-center gap-2 mb-2 text-gold-champagne">
               <MapPin className="w-5 h-5 text-gold-antique shrink-0 mt-0.5" />
               <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/90 font-semibold leading-normal">
-                पूर्ण पता / Complete Address
+                {t.fullAddressLabel}
               </span>
             </div>
 
             <p className="font-devanagari text-base sm:text-lg text-cream/95 leading-relaxed font-medium py-1">
-              118 Hotel Street, Udaipole Road Behind HDFC Bank, Udaipole, Shrinath Market, Udaipur, Rajasthan 313001
+              {t.fullAddressHi}
             </p>
 
             <p className="font-cormorant text-xs sm:text-sm text-gold-champagne/70 mt-2">
@@ -124,12 +120,12 @@ export const VenueSection: React.FC = () => {
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-green-400" />
-                    <span className="py-0.5">पता कॉपी हो गया! (Address Copied)</span>
+                    <span className="py-0.5">{t.copiedMsg}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5" />
-                    <span className="py-0.5">पता कॉपी करें (Copy Address)</span>
+                    <span className="py-0.5">{t.copyAddressBtn}</span>
                   </>
                 )}
               </button>
@@ -149,9 +145,9 @@ export const VenueSection: React.FC = () => {
               }}
             >
               <Navigation className="w-5 h-5 text-maroon-darkest" />
-              <span className="py-0.5">विवाह स्थल देखें</span>
+              <span className="py-0.5">{t.getDirectionsBtn}</span>
               <span className="text-xs uppercase font-serif tracking-widest text-maroon-deep/90 border-l border-maroon-deep/30 pl-2">
-                GET DIRECTIONS
+                {t.getDirectionsSub}
               </span>
               <ExternalLink className="w-4 h-4 ml-1 opacity-80" />
             </a>
@@ -161,7 +157,7 @@ export const VenueSection: React.FC = () => {
           <div className="mt-8 rounded-2xl overflow-hidden border border-gold-antique/40 shadow-xl max-w-3xl mx-auto">
             <div className="p-2 bg-maroon-darkest text-xs font-devanagari text-gold-champagne flex items-center justify-between px-4 border-b border-gold-antique/20">
               <span>Google Maps Live Location</span>
-              <span className="text-[11px] text-cream/70">उदयपोल, उदयपुर</span>
+              <span className="text-[11px] text-cream/70">{t.udaipoleCity}</span>
             </div>
             <iframe
               title="Hotel Madurai Udaipur Google Map Location"
@@ -181,4 +177,3 @@ export const VenueSection: React.FC = () => {
     </section>
   );
 };
-

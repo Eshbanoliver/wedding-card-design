@@ -2,24 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CornerOrnament, GoldDivider, RoyalMandapIllustration } from './OrnamentalSVGs';
 import { Calendar, Clock, Sparkles } from 'lucide-react';
-
-interface EventItem {
-  id: string;
-  nameHindi: string;
-  nameEnglish: string;
-  dayHindi: string;
-  dayEnglish: string;
-  timeHindi: string;
-  timeEnglish: string;
-  dateISO: string;
-  themeColor: string;
-  accentGradient: string;
-  isMainWedding?: boolean;
-  tagline: string;
-  svgIcon: React.ReactNode;
-}
+import { useLanguage } from '../context/LanguageContext';
 
 export const CelebrationsTimeline: React.FC = () => {
+  const { t } = useLanguage();
+
   // Countdown to Royal Wedding: 25 November 2026, 07:00 AM IST
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
@@ -52,32 +39,26 @@ export const CelebrationsTimeline: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Events list as specified in requirements
-  const events: EventItem[] = [
+  const events = [
     {
       id: 'haldi',
-      nameHindi: 'हल्दी समारोह',
-      nameEnglish: 'Haldi Ceremony',
-      dayHindi: 'मंगलवार, 24 नवंबर 2026',
-      dayEnglish: 'Tuesday, 24 November 2026',
-      timeHindi: 'प्रातः 10:00 बजे से',
-      timeEnglish: '10:00 AM Onwards',
-      dateISO: '2026-11-24',
-      themeColor: '#D99B26',
-      accentGradient: 'from-[#E5A93C]/20 via-maroon-burgundy/90 to-maroon-darkest/95',
-      tagline: 'हल्दी की पीली आभा और उबटन से सजेगा मंगल रूप',
+      nameHi: t.haldi.nameHi,
+      nameEn: t.haldi.nameEn,
+      dayHi: t.haldi.dayHi,
+      dayEn: t.haldi.dayEn,
+      timeHi: t.haldi.timeHi,
+      timeEn: t.haldi.timeEn,
+      tagline: t.haldi.tagline,
+      isMainWedding: false,
       svgIcon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 mx-auto filter drop-shadow-md">
           <circle cx="50" cy="50" r="42" fill="#380710" stroke="#C6A15B" strokeWidth="2" />
-          {/* Haldi Urli Pot */}
           <ellipse cx="50" cy="62" rx="26" ry="12" fill="#D99B26" />
           <path d="M 24 62 C 24 74 76 74 76 62 Z" fill="#B37D14" />
           <ellipse cx="50" cy="56" rx="28" ry="8" fill="#F4C430" stroke="#C6A15B" strokeWidth="1.5" />
-          {/* Marigold Petals */}
           <circle cx="42" cy="54" r="5" fill="#FFA500" />
           <circle cx="58" cy="54" r="5" fill="#FF8C00" />
           <circle cx="50" cy="52" r="6" fill="#FFD700" />
-          {/* Kalash on top */}
           <path d="M 45 42 L 55 42 L 52 32 L 48 32 Z" fill="#C6A15B" />
           <circle cx="50" cy="28" r="6" fill="#E6D3A3" />
         </svg>
@@ -85,20 +66,17 @@ export const CelebrationsTimeline: React.FC = () => {
     },
     {
       id: 'mehndi',
-      nameHindi: 'मेहंदी समारोह',
-      nameEnglish: 'Mehndi Ceremony',
-      dayHindi: 'मंगलवार, 24 नवंबर 2026',
-      dayEnglish: 'Tuesday, 24 November 2026',
-      timeHindi: 'सायं 4:00 बजे से',
-      timeEnglish: '04:00 PM Onwards',
-      dateISO: '2026-11-24',
-      themeColor: '#2E7D32',
-      accentGradient: 'from-[#2D5A27]/20 via-maroon-burgundy/90 to-maroon-darkest/95',
-      tagline: 'हाथों में रचेगी सतरंगी मेहंदी, गूंजेगी खुशियों की धुन',
+      nameHi: t.mehndi.nameHi,
+      nameEn: t.mehndi.nameEn,
+      dayHi: t.mehndi.dayHi,
+      dayEn: t.mehndi.dayEn,
+      timeHi: t.mehndi.timeHi,
+      timeEn: t.mehndi.timeEn,
+      tagline: t.mehndi.tagline,
+      isMainWedding: false,
       svgIcon: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 mx-auto filter drop-shadow-md">
           <circle cx="50" cy="50" r="42" fill="#380710" stroke="#C6A15B" strokeWidth="2" />
-          {/* Intricate Royal Paisley Henna Motif */}
           <path
             d="M 50 22 C 34 22 28 38 34 54 C 38 64 50 72 58 72 C 68 72 74 62 70 48 C 66 36 58 32 58 24 C 58 18 54 18 50 22 Z"
             fill="none"
@@ -108,7 +86,6 @@ export const CelebrationsTimeline: React.FC = () => {
           <circle cx="48" cy="46" r="6" fill="#C6A15B" />
           <circle cx="56" cy="54" r="3" fill="#E6D3A3" />
           <circle cx="40" cy="56" r="3" fill="#E6D3A3" />
-          {/* Henna Dots */}
           <circle cx="50" cy="24" r="1.5" fill="#FFF8E7" />
           <circle cx="36" cy="36" r="2" fill="#C6A15B" />
           <circle cx="64" cy="42" r="2" fill="#C6A15B" />
@@ -117,17 +94,14 @@ export const CelebrationsTimeline: React.FC = () => {
     },
     {
       id: 'wedding',
-      nameHindi: 'शुभ विवाह',
-      nameEnglish: 'Royal Wedding & Pheras',
-      dayHindi: 'बुधवार, 25 नवंबर 2026',
-      dayEnglish: 'Wednesday, 25 November 2026',
-      timeHindi: 'प्रातः 7:00 बजे से',
-      timeEnglish: '07:00 AM Onwards',
-      dateISO: '2026-11-25',
-      themeColor: '#C6A15B',
-      accentGradient: 'from-[#C6A15B]/30 via-maroon-burgundy/95 to-maroon-darkest/98',
+      nameHi: t.wedding.nameHi,
+      nameEn: t.wedding.nameEn,
+      dayHi: t.wedding.dayHi,
+      dayEn: t.wedding.dayEn,
+      timeHi: t.wedding.timeHi,
+      timeEn: t.wedding.timeEn,
+      tagline: t.wedding.tagline,
       isMainWedding: true,
-      tagline: 'अग्नि की पावन साक्षी में सात फेरे एवं जीवन का मंगल बंधन',
       svgIcon: (
         <div className="w-full max-w-[280px] mx-auto py-1">
           <RoyalMandapIllustration className="w-full h-auto" />
@@ -136,9 +110,8 @@ export const CelebrationsTimeline: React.FC = () => {
     },
   ];
 
-  // Quick helper to generate Google Calendar link
   const createGoogleCalendarUrl = (title: string, startDateStr: string, details: string) => {
-    const startIso = startDateStr.replace(/-|:|\.\d\d\d/g, '');
+    const startIso = startDateStr.replace(/-|:|\\.\\d\\d\\d/g, '');
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
       title
     )}&dates=${startIso}/${startIso}&details=${encodeURIComponent(
@@ -157,13 +130,13 @@ export const CelebrationsTimeline: React.FC = () => {
         className="text-center mb-10 md:mb-14"
       >
         <span className="text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 block mb-1">
-          Wedding Festivities
+          {t.weddingFestivities}
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
-          शुभ कार्यक्रम
+          {t.shubhKaryakram}
         </h2>
         <p className="text-xs sm:text-sm font-cormorant tracking-widest uppercase text-gold-champagne/80 mt-2 font-medium">
-          Auspicious Schedule of Ceremonies
+          {t.ceremoniesTagline}
         </p>
         <GoldDivider className="max-w-xs mx-auto mt-4" />
       </motion.div>
@@ -183,15 +156,15 @@ export const CelebrationsTimeline: React.FC = () => {
           <CornerOrnament position="bottom-right" className="absolute bottom-2 right-2 opacity-70" size={24} />
 
           <p className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 mb-3 font-semibold leading-normal py-0.5">
-            ॥ पावन लग्न मुहूर्त की उल्टी गिनती ॥
+            {t.countdownTitle}
           </p>
 
           <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mx-auto">
             {[
-              { labelHindi: 'दिवस', labelEng: 'Days', value: timeLeft.days },
-              { labelHindi: 'घंटे', labelEng: 'Hours', value: timeLeft.hours },
-              { labelHindi: 'मिनट', labelEng: 'Mins', value: timeLeft.minutes },
-              { labelHindi: 'सेकंड', labelEng: 'Secs', value: timeLeft.seconds },
+              { labelHi: t.days, labelEng: 'Days', value: timeLeft.days },
+              { labelHi: t.hours, labelEng: 'Hours', value: timeLeft.hours },
+              { labelHi: t.minutes, labelEng: 'Mins', value: timeLeft.minutes },
+              { labelHi: t.seconds, labelEng: 'Secs', value: timeLeft.seconds },
             ].map((unit, i) => (
               <div
                 key={i}
@@ -201,7 +174,7 @@ export const CelebrationsTimeline: React.FC = () => {
                   {String(unit.value).padStart(2, '0')}
                 </span>
                 <span className="font-devanagari text-[11px] sm:text-xs text-gold-champagne font-medium mt-0.5 leading-normal py-0.5">
-                  {unit.labelHindi}
+                  {unit.labelHi}
                 </span>
                 <span className="text-[9px] font-cormorant uppercase tracking-wider text-gold-champagne/60">
                   {unit.labelEng}
@@ -211,7 +184,7 @@ export const CelebrationsTimeline: React.FC = () => {
           </div>
 
           <p className="text-[11px] font-devanagari text-gold-champagne/80 mt-3 leading-relaxed py-0.5">
-            शुभ विवाह: बुधवार, 25 नवंबर 2026 • प्रातः 7:00 बजे
+            {t.weddingOnDate}
           </p>
         </div>
       </motion.div>
@@ -263,7 +236,7 @@ export const CelebrationsTimeline: React.FC = () => {
                   >
                     <Sparkles className="w-4 h-4 text-gold-antique" />
                     <span className="font-devanagari text-xs md:text-sm font-bold tracking-widest uppercase leading-normal py-0.5">
-                      कार्यक्रम {index + 1}
+                      {t.karyakram} {index + 1}
                     </span>
                   </div>
                 </div>
@@ -280,10 +253,10 @@ export const CelebrationsTimeline: React.FC = () => {
                       isMain ? 'text-3xl sm:text-4xl md:text-5xl' : 'text-2xl sm:text-3xl md:text-4xl'
                     }`}
                   >
-                    {evt.nameHindi}
+                    {evt.nameHi}
                   </h3>
                   <p className="font-cormorant text-base sm:text-lg text-gold-champagne font-medium tracking-wider mt-1">
-                    {evt.nameEnglish}
+                    {evt.nameEn}
                   </p>
                   <p className="font-devanagari text-xs sm:text-sm text-cream/90 italic mt-1 leading-relaxed py-0.5">
                     {evt.tagline}
@@ -302,13 +275,13 @@ export const CelebrationsTimeline: React.FC = () => {
                     </div>
                     <div>
                       <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70 leading-normal">
-                        दिनांक / Date
+                        {t.dateLabel}
                       </span>
                       <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-normal py-0.5">
-                        {evt.dayHindi}
+                        {evt.dayHi}
                       </p>
                       <p className="font-cormorant text-xs text-gold-champagne/80">
-                        {evt.dayEnglish}
+                        {evt.dayEn}
                       </p>
                     </div>
                   </div>
@@ -320,13 +293,13 @@ export const CelebrationsTimeline: React.FC = () => {
                     </div>
                     <div>
                       <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70 leading-normal">
-                        समय / Timings
+                        {t.timeLabel}
                       </span>
                       <p className="font-devanagari text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique leading-normal py-0.5 inline-block">
-                        {evt.timeHindi}
+                        {evt.timeHi}
                       </p>
                       <p className="font-cormorant text-xs text-gold-champagne/80">
-                        {evt.timeEnglish}
+                        {evt.timeEn}
                       </p>
                     </div>
                   </div>
@@ -337,16 +310,16 @@ export const CelebrationsTimeline: React.FC = () => {
                 <div className="flex justify-center mt-6">
                   <a
                     href={createGoogleCalendarUrl(
-                      `Akshay & Vibhuti - ${evt.nameEnglish}`,
+                      `Akshay & Vibhuti - ${evt.nameEn}`,
                       evt.id === 'wedding' ? '20261125T070000' : evt.id === 'haldi' ? '20261124T100000' : '20261124T160000',
-                      `Royal Jain Wedding of Akshay & Vibhuti. Ceremony: ${evt.nameHindi} (${evt.nameEnglish}). Venue: Hotel Madurai, Udaipur, Rajasthan.`
+                      `Royal Jain Wedding of Akshay & Vibhuti. Ceremony: ${evt.nameHi} (${evt.nameEn}). Venue: Hotel Madurai, Udaipur, Rajasthan.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne transition-all duration-300 font-devanagari text-xs sm:text-sm font-semibold shadow-sm hover:shadow-gold-sm leading-normal"
                   >
                     <Calendar className="w-4 h-4" />
-                    <span className="py-0.5">कैलेंडर में जोड़ें (Add to Calendar)</span>
+                    <span className="py-0.5">{t.addToCalendar}</span>
                   </a>
                 </div>
 
@@ -358,4 +331,3 @@ export const CelebrationsTimeline: React.FC = () => {
     </section>
   );
 };
-

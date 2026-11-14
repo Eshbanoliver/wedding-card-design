@@ -1,60 +1,93 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Volume2, VolumeX, Music } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MUSIC PLAYER – Jain Namokar Mantra Audio Player
+// Uses Web Audio API to synthesize a devotional Namokar Mantra melody.
+// Falls back gracefully if audio is unavailable.
+// No autoplay – user must click to start music.
+// ─────────────────────────────────────────────────────────────────────────────
 
 interface MusicPlayerProps {
   autoPlayTrigger?: boolean;
 }
 
 export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => {
+  const { t } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const audioContextRef = useRef<AudioContext | null>(null);
   const isRunningRef = useRef(false);
   const timerRef = useRef<number | null>(null);
+  const droneNodesRef = useRef<AudioNode[]>([]);
 
-  // Traditional Indian Wedding Shehnai & Tanpura Synthesizer (Raag Bilawal / Yaman notes)
-  // Scale frequencies (Sa, Re, Ga, Ma, Pa, Dha, Ni, Sa') in Hz for warm shehnai reed timbre
-  const notes = [
+  // ─── Namokar Mantra inspired melody ─────────────────────────────────────
+  // The Namokar Mantra is chanted in a pentatonic scale with a devotional drone.
+  // Notes approximate the traditional Jain chanting scale (Sa Re Ga Pa Dha – Bhairav feel)
+  const namokarNotes = [
     261.63, // Sa (C4)
-    293.66, // Re (D4)
-    329.63, // Ga (E4)
+    277.18, // Komal Re (Db4)  ← Bhairav characteristic
+    311.13, // Komal Ga (Eb4)
     349.23, // Ma (F4)
     392.0,  // Pa (G4)
-    440.0,  // Dha (A4)
+    415.30, // Komal Dha (Ab4) ← Bhairav characteristic
     493.88, // Ni (B4)
     523.25, // Tar Sa (C5)
-    587.33, // Tar Re (D5)
   ];
 
-  // Raga melody sequence evocative of royal wedding shehnai
-  const melody = [
-    { n: 0, d: 0.8 }, // Sa
-    { n: 1, d: 0.6 }, // Re
-    { n: 2, d: 1.0 }, // Ga
-    { n: 4, d: 1.2 }, // Pa
-    { n: 3, d: 0.6 }, // Ma
-    { n: 2, d: 0.8 }, // Ga
-    { n: 1, d: 0.6 }, // Re
-    { n: 0, d: 1.4 }, // Sa
-    { n: 4, d: 0.8 }, // Pa
-    { n: 5, d: 0.8 }, // Dha
-    { n: 6, d: 0.6 }, // Ni
-    { n: 7, d: 1.5 }, // Tar Sa
-    { n: 6, d: 0.8 }, // Ni
-    { n: 5, d: 0.8 }, // Dha
-    { n: 4, d: 1.0 }, // Pa
-    { n: 2, d: 0.8 }, // Ga
-    { n: 1, d: 0.8 }, // Re
-    { n: 0, d: 2.0 }, // Sa
+  // Namokar syllable-inspired melodic sequence (devotional, meditative pace)
+  const namokarMelody = [
+    // "Na-mo Ar-i-han-ta-nam"
+    { n: 0, d: 0.7 },  // Na
+    { n: 2, d: 0.5 },  // mo
+    { n: 4, d: 0.9 },  // A
+    { n: 3, d: 0.6 },  // ri
+    { n: 2, d: 0.5 },  // han
+    { n: 1, d: 0.6 },  // ta
+    { n: 0, d: 1.2 },  // nam
+    // "Na-mo Si-dha-nam"
+    { n: 2, d: 0.6 },  // Na
+    { n: 4, d: 0.5 },  // mo
+    { n: 5, d: 0.7 },  // Si
+    { n: 4, d: 0.5 },  // dha
+    { n: 2, d: 1.2 },  // nam
+    // "Na-mo A-ya-ri-ya-nam"
+    { n: 0, d: 0.6 },  // Na
+    { n: 2, d: 0.5 },  // mo
+    { n: 4, d: 0.6 },  // A
+    { n: 5, d: 0.5 },  // ya
+    { n: 7, d: 0.7 },  // ri
+    { n: 5, d: 0.5 },  // ya
+    { n: 4, d: 1.3 },  // nam
+    // "Na-mo U-va-jjha-ya-nam"
+    { n: 2, d: 0.6 },  // Na
+    { n: 4, d: 0.5 },  // mo
+    { n: 5, d: 0.6 },  // U
+    { n: 4, d: 0.5 },  // va
+    { n: 3, d: 0.6 },  // jjha
+    { n: 2, d: 0.5 },  // ya
+    { n: 0, d: 1.4 },  // nam
+    // "Na-mo Lo-e Sa-vva Sa-hu-nam" (rising resolve)
+    { n: 0, d: 0.5 },
+    { n: 2, d: 0.5 },
+    { n: 4, d: 0.6 },
+    { n: 5, d: 0.6 },
+    { n: 7, d: 0.8 },
+    { n: 5, d: 0.5 },
+    { n: 4, d: 0.5 },
+    { n: 2, d: 0.5 },
+    { n: 0, d: 2.0 },  // final resolve on Sa
   ];
 
-  const startShehnaiMusic = () => {
+  const startMusic = useCallback(() => {
     try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!audioContextRef.current) {
         audioContextRef.current = new AudioCtx();
       }
-
       if (audioContextRef.current.state === 'suspended') {
         audioContextRef.current.resume();
       }
@@ -63,120 +96,134 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
       isRunningRef.current = true;
       setIsPlaying(true);
 
-      // 1. Continuous Soft Tanpura Drone (Sa & Pa)
+      // ─── Tanpura Drone – Sa + Pa + Sa (octave) ───────────────────────
       const droneMaster = ctx.createGain();
-      droneMaster.gain.setValueAtTime(0.04, ctx.currentTime);
+      droneMaster.gain.setValueAtTime(0.035, ctx.currentTime);
       droneMaster.connect(ctx.destination);
 
-      const drone1 = ctx.createOscillator();
-      drone1.type = 'sawtooth';
-      drone1.frequency.setValueAtTime(130.81, ctx.currentTime); // C3 (Mandra Sa)
-      const filter1 = ctx.createBiquadFilter();
-      filter1.type = 'lowpass';
-      filter1.frequency.setValueAtTime(400, ctx.currentTime);
-      drone1.connect(filter1);
-      filter1.connect(droneMaster);
-      drone1.start();
+      const createDroneOsc = (freq: number, type: OscillatorType, gain: number) => {
+        const osc = ctx.createOscillator();
+        const g = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        g.gain.setValueAtTime(gain, ctx.currentTime);
+        osc.connect(g);
+        g.connect(droneMaster);
+        osc.start();
+        droneNodesRef.current.push(osc, g);
+        return osc;
+      };
 
-      const drone2 = ctx.createOscillator();
-      drone2.type = 'sine';
-      drone2.frequency.setValueAtTime(196.0, ctx.currentTime); // G3 (Mandra Pa)
-      drone2.connect(droneMaster);
-      drone2.start();
+      createDroneOsc(130.81, 'sawtooth', 0.5);  // Mandra Sa
+      createDroneOsc(196.0, 'sine', 0.4);         // Mandra Pa
+      createDroneOsc(261.63, 'sine', 0.3);         // Madhya Sa
+      droneNodesRef.current.push(droneMaster);
 
-      // 2. Play Shehnai melody loop
+      // ─── Main Chanting Melody ─────────────────────────────────────────
       let stepIndex = 0;
+
       const playNextNote = () => {
         if (!isRunningRef.current || !audioContextRef.current) return;
-        const currentNote = melody[stepIndex];
-        const freq = notes[currentNote.n];
+
+        const step = namokarMelody[stepIndex];
+        const freq = namokarNotes[step.n];
         const now = ctx.currentTime;
 
-        // Shehnai dual-reed oscillator (rich harmonics + subtle vibrato)
+        // Soft sarangi/harmonium-style tone (suitable for mantra chanting)
         const osc1 = ctx.createOscillator();
         const osc2 = ctx.createOscillator();
-        const vibrato = ctx.createOscillator();
-        const vibratoGain = ctx.createGain();
         const noteGain = ctx.createGain();
-        const shehnaiFilter = ctx.createBiquadFilter();
+        const filter = ctx.createBiquadFilter();
 
-        osc1.type = 'sawtooth';
-        osc2.type = 'triangle';
+        osc1.type = 'triangle';
+        osc2.type = 'sine';
         osc1.frequency.setValueAtTime(freq, now);
-        osc2.frequency.setValueAtTime(freq * 1.002, now); // gentle natural chorus
+        osc2.frequency.setValueAtTime(freq * 2.001, now); // octave shimmer
 
-        // Shehnai nasal resonance filter
-        shehnaiFilter.type = 'bandpass';
-        shehnaiFilter.frequency.setValueAtTime(1200, now);
-        shehnaiFilter.Q.setValueAtTime(1.8, now);
+        // Warm low-pass for harmonium-like tone
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1800, now);
+        filter.Q.setValueAtTime(0.7, now);
 
-        // Natural Vibrato (5.5 Hz)
-        vibrato.frequency.setValueAtTime(5.5, now);
-        vibratoGain.gain.setValueAtTime(3.5, now);
-        vibrato.connect(osc1.frequency);
-        vibrato.connect(osc2.frequency);
-        vibrato.start(now);
-
-        // Envelope: soft attack, gentle decay (Shehnai breath effect)
+        // ADSR envelope – gentle devotional feel
         noteGain.gain.setValueAtTime(0, now);
-        noteGain.gain.linearRampToValueAtTime(0.065, now + 0.15);
-        noteGain.gain.exponentialRampToValueAtTime(0.001, now + currentNote.d);
+        noteGain.gain.linearRampToValueAtTime(0.07, now + 0.08);
+        noteGain.gain.setValueAtTime(0.06, now + step.d * 0.6);
+        noteGain.gain.linearRampToValueAtTime(0, now + step.d * 0.95);
 
-        osc1.connect(shehnaiFilter);
-        osc2.connect(shehnaiFilter);
-        shehnaiFilter.connect(noteGain);
+        osc1.connect(filter);
+        osc2.connect(filter);
+        filter.connect(noteGain);
         noteGain.connect(ctx.destination);
 
         osc1.start(now);
         osc2.start(now);
-        osc1.stop(now + currentNote.d);
-        osc2.stop(now + currentNote.d);
-        vibrato.stop(now + currentNote.d);
+        osc1.stop(now + step.d);
+        osc2.stop(now + step.d);
 
-        stepIndex = (stepIndex + 1) % melody.length;
-        timerRef.current = window.setTimeout(playNextNote, currentNote.d * 1000);
+        stepIndex = (stepIndex + 1) % namokarMelody.length;
+        timerRef.current = window.setTimeout(playNextNote, step.d * 1000);
       };
 
       playNextNote();
     } catch {
-      // Audio fallback handling
+      // Audio API unavailable – silent fail
     }
-  };
+  }, []);
 
-  const stopMusic = () => {
+  const stopMusic = useCallback(() => {
     isRunningRef.current = false;
     setIsPlaying(false);
+
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
+
+    // Disconnect drone nodes
+    droneNodesRef.current.forEach((node) => {
+      try {
+        if (node instanceof OscillatorNode) node.stop();
+      } catch {
+        // already stopped
+      }
+    });
+    droneNodesRef.current = [];
+
     if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
       audioContextRef.current.suspend();
     }
-  };
+  }, []);
 
   const toggleMusic = () => {
     setHasInteracted(true);
     if (isPlaying) {
       stopMusic();
     } else {
-      startShehnaiMusic();
+      startMusic();
     }
   };
 
-  // If user clicked "आमंत्रण देखें" (Open Invitation), start music if not already playing
+  // If user clicked "आमंत्रण देखें", auto-start music (once, on first click)
   useEffect(() => {
     if (autoPlayTrigger && !isPlaying && !hasInteracted) {
       setHasInteracted(true);
-      startShehnaiMusic();
+      startMusic();
     }
-  }, [autoPlayTrigger, hasInteracted, isPlaying]);
+  }, [autoPlayTrigger, hasInteracted, isPlaying, startMusic]);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
       isRunningRef.current = false;
       if (timerRef.current) clearTimeout(timerRef.current);
+      droneNodesRef.current.forEach((node) => {
+        try {
+          if (node instanceof OscillatorNode) node.stop();
+        } catch {
+          // silent
+        }
+      });
       if (audioContextRef.current) {
         audioContextRef.current.close().catch(() => {});
       }
@@ -184,12 +231,12 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2">
+    <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2">
       <button
         onClick={toggleMusic}
-        aria-label={isPlaying ? 'संगीत बंद करें' : 'शहनाई संगीत शुरू करें'}
-        title={isPlaying ? 'Mute Royal Shehnai' : 'Play Royal Wedding Shehnai Music'}
-        className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-full border-2 border-gold-antique bg-gradient-to-r from-maroon-deep via-maroon-burgundy to-maroon-darkest text-gold-champagne shadow-2xl hover:shadow-gold-md hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md"
+        aria-label={isPlaying ? t.musicStopBtn : t.musicPlayBtn}
+        title={isPlaying ? t.musicStopBtn : t.musicPlayBtn}
+        className="group relative flex items-center gap-2.5 px-3 sm:px-4 py-2.5 rounded-full border-2 border-gold-antique bg-gradient-to-r from-maroon-deep via-maroon-burgundy to-maroon-darkest text-gold-champagne shadow-2xl hover:shadow-gold-md hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md"
       >
         {/* Pulsing Aura when playing */}
         {isPlaying && (
@@ -208,10 +255,10 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
         {/* Text and Soundwaves */}
         <div className="flex flex-col text-left">
           <span className="text-[11px] font-devanagari font-bold tracking-wider leading-normal py-0.5">
-            {isPlaying ? 'शहनाई वादन' : 'संगीत चालू करें'}
+            {isPlaying ? t.musicPlayingLabel : t.musicStoppedLabel}
           </span>
           <span className="text-[9px] font-cormorant text-gold-champagne/75 uppercase tracking-widest leading-none mt-0.5">
-            {isPlaying ? 'Royal Shehnai' : 'Play Music'}
+            {isPlaying ? t.musicPlayingSub : t.musicStoppedSub}
           </span>
         </div>
 
@@ -229,4 +276,3 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
     </div>
   );
 };
-

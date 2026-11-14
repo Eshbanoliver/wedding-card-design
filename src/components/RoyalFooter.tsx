@@ -1,8 +1,11 @@
 import React from 'react';
 import { JainSymbol, CornerOrnament } from './OrnamentalSVGs';
 import { Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const RoyalFooter: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="relative w-full overflow-hidden z-20 pb-12 pt-8">
       {/* Intricate Golden Decorative Top Border */}
@@ -37,10 +40,10 @@ export const RoyalFooter: React.FC = () => {
 
           {/* Footer Heading: शुभ विवाह */}
           <h3 className="text-2xl sm:text-3xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique tracking-wide mb-1 inline-block leading-normal py-1.5">
-            शुभ विवाह
+            {t.footerShubhVivah}
           </h3>
           <p className="font-cormorant text-xs uppercase tracking-[0.25em] text-gold-champagne/70 font-medium">
-            Royal Jain Wedding Invitation
+            {t.footerSubtitle}
           </p>
 
           <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
@@ -48,28 +51,28 @@ export const RoyalFooter: React.FC = () => {
           {/* Couple Names: अक्षय ❤️ विभूति */}
           <div className="flex items-center justify-center gap-2 my-3">
             <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique inline-block leading-normal py-1">
-              अक्षय
+              {t.groomName}
             </span>
             <Heart className="w-4 h-4 text-gold-champagne fill-gold-antique" />
             <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-antique to-gold-pale inline-block leading-normal py-1">
-              विभूति
+              {t.brideName}
             </span>
           </div>
 
           {/* Heartfelt Quote */}
           <p className="font-devanagari text-sm sm:text-base text-cream/90 max-w-xl mx-auto my-3 leading-relaxed italic py-1">
-            "आपकी गरिमामयी उपस्थिति हमारे लिए सौभाग्य एवं हर्ष का विषय होगी।"
+            {t.footerQuote}
           </p>
 
           <p className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 font-semibold my-2 leading-normal py-0.5">
-            सादर आमंत्रित
+            {t.footerInvited}
           </p>
 
           {/* Bottom Auspicious Jain Quote */}
           <div className="mt-6 pt-4 border-t border-gold-antique/20 flex flex-col sm:flex-row items-center justify-between text-[11px] font-devanagari text-gold-champagne/70 gap-2 leading-normal py-0.5">
-            <span>ऋषभदेव (उदयपुर) • फिरोजाबाद</span>
-            <span className="text-gold-antique font-serif">卐 ॐ अर्हम् नमः 卐</span>
-            <span>24 &amp; 25 नवंबर 2026</span>
+            <span>{t.footerLocations}</span>
+            <span className="text-gold-antique font-serif">{t.footerMantra}</span>
+            <span>{t.footerDates}</span>
           </div>
         </div>
 
@@ -80,4 +83,3 @@ export const RoyalFooter: React.FC = () => {
     </footer>
   );
 };
-

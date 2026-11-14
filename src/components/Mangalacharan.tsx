@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { JainKalash, CornerOrnament, GoldDivider } from './OrnamentalSVGs';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Mangalacharan: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="mangalacharan" className="relative py-12 md:py-20 px-4 max-w-4xl mx-auto w-full">
       <motion.div
@@ -35,10 +38,10 @@ export const Mangalacharan: React.FC = () => {
           {/* Section Sub-heading */}
           <div className="mb-4">
             <span className="text-xs uppercase tracking-[0.25em] font-serif text-gold-champagne/80 block mb-1">
-              Sacred Inscription
+              {t.sacredInscription}
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
-              ॥ श्री जैन मंगलाचरण ॥
+              {t.mangalacharanTitle}
             </h2>
           </div>
 
@@ -47,16 +50,15 @@ export const Mangalacharan: React.FC = () => {
           {/* Sacred Mangalacharan Shloka */}
           <div className="my-6 px-3 sm:px-6 py-6 rounded-xl bg-maroon-darkest/60 border border-gold-antique/30 shadow-inner overflow-visible">
             <div className="font-devanagari text-lg sm:text-2xl md:text-2xl font-semibold text-center text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] drop-shadow-sm leading-[2] sm:leading-[2.2] md:leading-[2.4] py-2 px-1">
-              <span className="inline-block py-1">मंगलम् भगवान वीरो मंगलम् गौतमो गणः।</span>
+              <span className="inline-block py-1">{t.mangalacharan1}</span>
               <br />
-              <span className="inline-block py-1">मंगलम् कुन्दकुन्दाद्यो जैन धर्मस्तु मंगलम् ॥</span>
+              <span className="inline-block py-1">{t.mangalacharan2}</span>
             </div>
           </div>
 
           {/* English Meaning of the Sacred Shloka for Universal Appreciation */}
           <p className="font-cormorant italic text-xs sm:text-sm text-gold-champagne/80 max-w-xl mx-auto mb-6">
-            "Auspicious is Bhagwan Mahavira, auspicious is Ganadhara Gautama Swami;
-            auspicious is Acharya Kundakunda, and supreme and auspicious is the eternal Jain Dharma."
+            {t.mangalacharanMeaning}
           </p>
 
           <GoldDivider className="my-4 max-w-xs mx-auto" />
@@ -64,12 +66,11 @@ export const Mangalacharan: React.FC = () => {
           {/* Sacred Invitation Message */}
           <div className="mt-6 max-w-2xl mx-auto">
             <p className="font-devanagari text-base sm:text-lg md:text-xl text-cream/95 leading-[1.8] md:leading-[2] py-1">
-              परम तत्व श्री भगवान की अनंत कृपा से हमारे परिवार में शुभ विवाह संस्कार का मंगल अवसर आ रहा है जिसमें आप सादर आमंत्रित हैं।
+              {t.invitationMsg}
             </p>
 
             <p className="font-cormorant text-xs sm:text-sm text-gold-champagne/70 mt-3 tracking-wide">
-              By the supreme grace of the Divine, an auspicious marriage celebration is gracing our family,
-              and we cordially invite your gracious presence to bless the couple.
+              {t.invitationMsgEn}
             </p>
           </div>
 
@@ -77,7 +78,7 @@ export const Mangalacharan: React.FC = () => {
           <div className="mt-8 flex justify-center items-center gap-3 text-gold-antique text-sm">
             <span>卐</span>
             <span className="font-devanagari text-xs tracking-widest text-gold-champagne leading-normal py-0.5">
-              सत्य • अहिंसा • अपरिग्रह
+              {t.jainValues}
             </span>
             <span>卐</span>
           </div>
@@ -87,4 +88,3 @@ export const Mangalacharan: React.FC = () => {
     </section>
   );
 };
-

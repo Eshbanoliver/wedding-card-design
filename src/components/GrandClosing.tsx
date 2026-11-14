@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CornerOrnament, GoldDivider, RoyalMandapIllustration, JainSymbol } from './OrnamentalSVGs';
 import { Heart, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const GrandClosing: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="closing" className="relative py-14 md:py-28 px-4 max-w-5xl mx-auto w-full">
       <motion.div
@@ -34,7 +37,7 @@ export const GrandClosing: React.FC = () => {
 
           <div className="my-2">
             <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 block leading-normal py-0.5">
-              ॥ स्नेह निमंत्रण ॥
+              {t.grandClosingLabel}
             </span>
           </div>
 
@@ -46,10 +49,10 @@ export const GrandClosing: React.FC = () => {
           {/* Closing Heartfelt Message */}
           <div className="my-6 max-w-2xl mx-auto px-4 py-6 rounded-2xl bg-maroon-darkest/70 border border-gold-antique/30 overflow-visible">
             <p className="font-devanagari text-lg sm:text-2xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] leading-[1.8] sm:leading-[2] md:leading-[2.2] font-bold py-2 px-1 inline-block w-full">
-              "आपकी गरिमामयी उपस्थिति हमारे लिए सौभाग्य एवं हर्ष का विषय होगी।"
+              {t.closingInvite}
             </p>
             <p className="font-cormorant text-xs sm:text-sm text-gold-champagne/70 italic mt-2">
-              "Your gracious presence will be an honor and a blessing on our sacred journey."
+              {t.withBlessings}
             </p>
           </div>
 
@@ -58,12 +61,12 @@ export const GrandClosing: React.FC = () => {
           {/* Final Text: सादर आमंत्रित | अक्षय ❤️ विभूति */}
           <div className="my-6">
             <span className="font-devanagari text-sm uppercase tracking-widest text-gold-champagne font-semibold block mb-2 leading-normal py-0.5">
-              सादर आमंत्रित
+              {t.rsvpLabel}
             </span>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-2">
               <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique drop-shadow-md inline-block py-2 leading-normal">
-                अक्षय
+                {t.groomName}
               </span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
@@ -73,7 +76,7 @@ export const GrandClosing: React.FC = () => {
                 <Heart className="w-5 h-5 text-gold-champagne fill-gold-antique" />
               </motion.div>
               <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-antique via-gold-champagne to-gold-pale drop-shadow-md inline-block py-2 leading-normal">
-                विभूति
+                {t.brideName}
               </span>
             </div>
 
@@ -96,4 +99,3 @@ export const GrandClosing: React.FC = () => {
     </section>
   );
 };
-
