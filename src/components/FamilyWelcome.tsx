@@ -17,7 +17,7 @@ export const FamilyWelcome: React.FC = () => {
         <span className="text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 block mb-1">
           With Warmest Regards
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
           सादर स्वागत एवं अभिनंदन
         </h2>
         <p className="text-xs sm:text-sm font-cormorant tracking-widest uppercase text-gold-champagne/80 mt-2 font-medium">
@@ -49,13 +49,13 @@ export const FamilyWelcome: React.FC = () => {
           {/* Top Diya and Blessings */}
           <div className="flex items-center justify-center gap-4 mb-4">
             <SacredDiya size={34} />
-            <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80">
+            <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 leading-normal py-0.5">
               ॥ स्वागताकांक्षी ॥
             </span>
             <SacredDiya size={34} />
           </div>
 
-          <p className="font-devanagari text-base sm:text-lg text-cream/95 max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="font-devanagari text-base sm:text-lg text-cream/95 max-w-2xl mx-auto leading-[1.8] md:leading-[2] mb-8 py-1">
             हमारे परिवार के इस मांगलिक अवसर पर आपका शुभागमन ही हमारे उत्सव की शोभा बढ़ाएगा।
             हम सहृदय आपका स्वागत एवं सत्कार करने को आतुर हैं।
           </p>
@@ -72,10 +72,10 @@ export const FamilyWelcome: React.FC = () => {
               <div className="w-10 h-10 rounded-full border border-gold-antique/50 bg-maroon-deep mx-auto flex items-center justify-center mb-3 shadow-gold-sm">
                 <Sparkles className="w-5 h-5 text-gold-antique group-hover:rotate-12 transition-transform" />
               </div>
-              <span className="block font-devanagari text-xs uppercase tracking-widest text-gold-champagne/70 mb-1">
+              <span className="block font-devanagari text-xs uppercase tracking-widest text-gold-champagne/70 mb-1 leading-normal">
                 स्नेही स्वागतकर्ता
               </span>
-              <h3 className="text-xl sm:text-2xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
+              <h3 className="text-xl sm:text-2xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block py-1.5 leading-normal">
                 आस्था एवं निहाल जी
               </h3>
               <p className="font-cormorant text-xs text-gold-champagne/80 mt-1">
@@ -92,10 +92,10 @@ export const FamilyWelcome: React.FC = () => {
               <div className="w-10 h-10 rounded-full border border-gold-antique/50 bg-maroon-deep mx-auto flex items-center justify-center mb-3 shadow-gold-sm">
                 <Heart className="w-5 h-5 text-gold-antique group-hover:scale-110 transition-transform" />
               </div>
-              <span className="block font-devanagari text-xs uppercase tracking-widest text-gold-champagne/70 mb-1">
+              <span className="block font-devanagari text-xs uppercase tracking-widest text-gold-champagne/70 mb-1 leading-normal">
                 स्नेही स्वागतकर्ता
               </span>
-              <h3 className="text-xl sm:text-2xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
+              <h3 className="text-xl sm:text-2xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block py-1.5 leading-normal">
                 प्रणय 'जी' एवं अनंत
               </h3>
               <p className="font-cormorant text-xs text-gold-champagne/80 mt-1">
@@ -107,7 +107,7 @@ export const FamilyWelcome: React.FC = () => {
 
           {/* Warm closing note */}
           <div className="mt-8 pt-6 border-t border-gold-antique/20 max-w-xl mx-auto">
-            <p className="font-devanagari text-sm text-gold-champagne/90 italic">
+            <p className="font-devanagari text-sm text-gold-champagne/90 italic leading-relaxed py-0.5">
               समस्त परिवारजन आपके स्नेहपूर्ण शुभाशीर्वाद के अभिलाषी हैं।
             </p>
           </div>

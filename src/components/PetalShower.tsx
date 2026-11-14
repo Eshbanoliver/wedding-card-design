@@ -49,10 +49,10 @@ export const PetalShowerButton: React.FC<{ className?: string }> = ({ className 
     <button
       onClick={triggerPetalShower}
       title="पुष्प वर्षा करें (Shower Auspicious Petals)"
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne text-xs font-devanagari font-semibold transition-all duration-300 shadow-md hover:shadow-gold-sm ${className}`}
+      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne text-xs font-devanagari font-semibold transition-all duration-300 shadow-md hover:shadow-gold-sm leading-normal ${className}`}
     >
       <Sparkles className="w-3.5 h-3.5 text-gold-antique" />
-      <span>पुष्प वर्षा करें (Shower Petals)</span>
+      <span className="py-0.5">पुष्प वर्षा करें (Shower Petals)</span>
     </button>
   );
 };

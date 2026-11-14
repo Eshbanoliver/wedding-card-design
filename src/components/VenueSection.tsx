@@ -33,7 +33,7 @@ export const VenueSection: React.FC = () => {
         <span className="text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 block mb-1">
           Wedding Destination
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
           विवाह स्थल
         </h2>
         <p className="text-xs sm:text-sm font-cormorant tracking-widest uppercase text-gold-champagne/80 mt-2 font-medium">
@@ -85,13 +85,13 @@ export const VenueSection: React.FC = () => {
 
           {/* Venue Name */}
           <div className="my-2">
-            <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 block mb-1">
+            <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 block mb-1 leading-normal py-0.5">
               ॥ शुभ विवाह वेदी ॥
             </span>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-playfair font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
               {venueName}
             </h3>
-            <p className="font-devanagari text-base sm:text-lg text-cream/90 font-medium mt-1">
+            <p className="font-devanagari text-base sm:text-lg text-cream/90 font-medium mt-1 leading-normal py-0.5">
               होटल मदुरै, उदयपुर
             </p>
           </div>
@@ -102,12 +102,12 @@ export const VenueSection: React.FC = () => {
           <div className="max-w-2xl mx-auto my-6 p-5 sm:p-6 rounded-2xl bg-maroon-darkest/75 border border-gold-antique/30 shadow-inner">
             <div className="flex items-start justify-center gap-2 mb-2 text-gold-champagne">
               <MapPin className="w-5 h-5 text-gold-antique shrink-0 mt-0.5" />
-              <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/90 font-semibold">
+              <span className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/90 font-semibold leading-normal">
                 पूर्ण पता / Complete Address
               </span>
             </div>
 
-            <p className="font-devanagari text-base sm:text-lg text-cream/95 leading-relaxed font-medium">
+            <p className="font-devanagari text-base sm:text-lg text-cream/95 leading-relaxed font-medium py-1">
               118 Hotel Street, Udaipole Road Behind HDFC Bank, Udaipole, Shrinath Market, Udaipur, Rajasthan 313001
             </p>
 
@@ -119,17 +119,17 @@ export const VenueSection: React.FC = () => {
             <div className="mt-4 flex justify-center">
               <button
                 onClick={handleCopyAddress}
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-gold-antique/40 bg-maroon-deep/70 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne text-xs transition-colors duration-200"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-gold-antique/40 bg-maroon-deep/70 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne text-xs transition-colors duration-200 font-devanagari leading-normal"
               >
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-green-400" />
-                    <span>पता कॉपी हो गया! (Address Copied)</span>
+                    <span className="py-0.5">पता कॉपी हो गया! (Address Copied)</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5" />
-                    <span>पता कॉपी करें (Copy Address)</span>
+                    <span className="py-0.5">पता कॉपी करें (Copy Address)</span>
                   </>
                 )}
               </button>
@@ -142,14 +142,14 @@ export const VenueSection: React.FC = () => {
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full font-devanagari text-base font-bold text-maroon-darkest overflow-hidden transition-all duration-300 shadow-xl hover:shadow-gold-md hover:scale-[1.03]"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full font-devanagari text-base font-bold text-maroon-darkest overflow-hidden transition-all duration-300 shadow-xl hover:shadow-gold-md hover:scale-[1.03] leading-normal"
               style={{
                 background: 'linear-gradient(135deg, #FFF9EA 0%, #E6D3A3 30%, #C6A15B 70%, #9E7B35 100%)',
                 border: '2px solid #FFF8E7',
               }}
             >
               <Navigation className="w-5 h-5 text-maroon-darkest" />
-              <span>विवाह स्थल देखें</span>
+              <span className="py-0.5">विवाह स्थल देखें</span>
               <span className="text-xs uppercase font-serif tracking-widest text-maroon-deep/90 border-l border-maroon-deep/30 pl-2">
                 GET DIRECTIONS
               </span>

@@ -27,7 +27,7 @@ export default {
         cream: '#F5EBD7',
       },
       fontFamily: {
-        devanagari: ['"Noto Serif Devanagari"', '"Rozha One"', 'serif'],
+        devanagari: ['"Noto Serif Devanagari"', '"Noto Sans Devanagari"', 'serif'],
         cinzel: ['"Cinzel Decorative"', 'serif'],
         cormorant: ['"Cormorant Garamond"', 'serif'],
         playfair: ['"Playfair Display"', 'serif'],

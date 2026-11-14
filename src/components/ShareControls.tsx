@@ -30,10 +30,10 @@ export const ShareControls: React.FC = () => {
       <button
         onClick={handleWhatsAppShare}
         title="व्हाट्सएप पर शेयर करें (Share on WhatsApp)"
-        className="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-gold-antique/70 bg-gradient-to-r from-emerald-800 to-green-900 hover:from-emerald-700 hover:to-green-800 text-white text-xs font-devanagari font-semibold transition-all duration-300 shadow-lg hover:shadow-gold-sm"
+        className="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-gold-antique/70 bg-gradient-to-r from-emerald-800 to-green-900 hover:from-emerald-700 hover:to-green-800 text-white text-xs font-devanagari font-semibold transition-all duration-300 shadow-lg hover:shadow-gold-sm leading-normal"
       >
         <Send className="w-3.5 h-3.5" />
-        <span className="hidden sm:inline">शेयर करें</span>
+        <span className="hidden sm:inline py-0.5">शेयर करें</span>
       </button>
 
       {/* Copy Link Button */}

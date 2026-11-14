@@ -159,7 +159,7 @@ export const CelebrationsTimeline: React.FC = () => {
         <span className="text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 block mb-1">
           Wedding Festivities
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique inline-block leading-normal py-1.5">
           शुभ कार्यक्रम
         </h2>
         <p className="text-xs sm:text-sm font-cormorant tracking-widest uppercase text-gold-champagne/80 mt-2 font-medium">
@@ -182,7 +182,7 @@ export const CelebrationsTimeline: React.FC = () => {
           <CornerOrnament position="bottom-left" className="absolute bottom-2 left-2 opacity-70" size={24} />
           <CornerOrnament position="bottom-right" className="absolute bottom-2 right-2 opacity-70" size={24} />
 
-          <p className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 mb-3 font-semibold">
+          <p className="font-devanagari text-xs uppercase tracking-widest text-gold-champagne/80 mb-3 font-semibold leading-normal py-0.5">
             ॥ पावन लग्न मुहूर्त की उल्टी गिनती ॥
           </p>
 
@@ -200,7 +200,7 @@ export const CelebrationsTimeline: React.FC = () => {
                 <span className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] to-[#C6A15B]">
                   {String(unit.value).padStart(2, '0')}
                 </span>
-                <span className="font-devanagari text-[11px] sm:text-xs text-gold-champagne font-medium mt-0.5">
+                <span className="font-devanagari text-[11px] sm:text-xs text-gold-champagne font-medium mt-0.5 leading-normal py-0.5">
                   {unit.labelHindi}
                 </span>
                 <span className="text-[9px] font-cormorant uppercase tracking-wider text-gold-champagne/60">
@@ -210,7 +210,7 @@ export const CelebrationsTimeline: React.FC = () => {
             ))}
           </div>
 
-          <p className="text-[11px] font-devanagari text-gold-champagne/75 mt-3">
+          <p className="text-[11px] font-devanagari text-gold-champagne/80 mt-3 leading-relaxed py-0.5">
             शुभ विवाह: बुधवार, 25 नवंबर 2026 • प्रातः 7:00 बजे
           </p>
         </div>
@@ -262,7 +262,7 @@ export const CelebrationsTimeline: React.FC = () => {
                     }`}
                   >
                     <Sparkles className="w-4 h-4 text-gold-antique" />
-                    <span className="font-devanagari text-xs md:text-sm font-bold tracking-widest uppercase">
+                    <span className="font-devanagari text-xs md:text-sm font-bold tracking-widest uppercase leading-normal py-0.5">
                       कार्यक्रम {index + 1}
                     </span>
                   </div>
@@ -276,7 +276,7 @@ export const CelebrationsTimeline: React.FC = () => {
                 {/* Event Titles */}
                 <div className="text-center my-4">
                   <h3
-                    className={`font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide ${
+                    className={`font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#EADBBA] to-[#C6A15B] tracking-wide inline-block py-2 leading-normal ${
                       isMain ? 'text-3xl sm:text-4xl md:text-5xl' : 'text-2xl sm:text-3xl md:text-4xl'
                     }`}
                   >
@@ -285,7 +285,7 @@ export const CelebrationsTimeline: React.FC = () => {
                   <p className="font-cormorant text-base sm:text-lg text-gold-champagne font-medium tracking-wider mt-1">
                     {evt.nameEnglish}
                   </p>
-                  <p className="font-devanagari text-xs sm:text-sm text-cream/80 italic mt-1">
+                  <p className="font-devanagari text-xs sm:text-sm text-cream/90 italic mt-1 leading-relaxed py-0.5">
                     {evt.tagline}
                   </p>
                 </div>
@@ -301,10 +301,10 @@ export const CelebrationsTimeline: React.FC = () => {
                       <Calendar className="w-5 h-5 text-gold-antique" />
                     </div>
                     <div>
-                      <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70">
+                      <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70 leading-normal">
                         दिनांक / Date
                       </span>
-                      <p className="font-devanagari text-sm sm:text-base font-semibold text-cream">
+                      <p className="font-devanagari text-sm sm:text-base font-semibold text-cream leading-normal py-0.5">
                         {evt.dayHindi}
                       </p>
                       <p className="font-cormorant text-xs text-gold-champagne/80">
@@ -319,10 +319,10 @@ export const CelebrationsTimeline: React.FC = () => {
                       <Clock className="w-5 h-5 text-gold-antique" />
                     </div>
                     <div>
-                      <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70">
+                      <span className="block font-devanagari text-[11px] uppercase tracking-wider text-gold-champagne/70 leading-normal">
                         समय / Timings
                       </span>
-                      <p className="font-devanagari text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique">
+                      <p className="font-devanagari text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique leading-normal py-0.5 inline-block">
                         {evt.timeHindi}
                       </p>
                       <p className="font-cormorant text-xs text-gold-champagne/80">
@@ -343,10 +343,10 @@ export const CelebrationsTimeline: React.FC = () => {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne transition-all duration-300 font-devanagari text-xs sm:text-sm font-semibold shadow-sm hover:shadow-gold-sm"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-antique/60 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne transition-all duration-300 font-devanagari text-xs sm:text-sm font-semibold shadow-sm hover:shadow-gold-sm leading-normal"
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>कैलेंडर में जोड़ें (Add to Calendar)</span>
+                    <span className="py-0.5">कैलेंडर में जोड़ें (Add to Calendar)</span>
                   </a>
                 </div>
 

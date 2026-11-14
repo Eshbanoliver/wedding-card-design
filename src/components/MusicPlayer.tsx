@@ -207,7 +207,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
 
         {/* Text and Soundwaves */}
         <div className="flex flex-col text-left">
-          <span className="text-[11px] font-devanagari font-bold tracking-wider leading-none">
+          <span className="text-[11px] font-devanagari font-bold tracking-wider leading-normal py-0.5">
             {isPlaying ? 'शहनाई वादन' : 'संगीत चालू करें'}
           </span>
           <span className="text-[9px] font-cormorant text-gold-champagne/75 uppercase tracking-widest leading-none mt-0.5">

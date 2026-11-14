@@ -282,7 +282,7 @@ export const GoldDivider: React.FC<{ className?: string; title?: string }> = ({ 
         </svg>
 
         {title && (
-          <span className="font-devanagari text-gold-champagne text-sm md:text-base font-semibold tracking-wider">
+          <span className="font-devanagari text-gold-champagne text-sm md:text-base font-semibold tracking-wider leading-normal py-0.5">
             {title}
           </span>
         )}

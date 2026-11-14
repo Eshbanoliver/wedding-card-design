@@ -51,7 +51,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-xs md:text-sm font-devanagari text-gold-champagne tracking-widest mt-1 opacity-90"
+              className="text-xs md:text-sm font-devanagari text-gold-champagne tracking-widest mt-1 opacity-90 leading-relaxed py-1"
             >
               ॥ ॐ श्री ऋषभदेवाय नमः ॥
             </motion.p>
@@ -81,7 +81,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             <span className="inline-block text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 mb-1">
               Royal Wedding Invitation
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#E8D5A7] to-[#C6A15B] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#E8D5A7] to-[#C6A15B] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] inline-block leading-normal py-1.5">
               शुभ विवाह
             </h1>
           </motion.div>
@@ -97,7 +97,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             <div className="absolute inset-0 bg-gold-antique/10 blur-2xl rounded-full pointer-events-none" />
 
             <div className="relative flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 py-2">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFF9EA] via-[#E6D3A3] to-[#C6A15B] tracking-wider drop-shadow-md">
+              <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFF9EA] via-[#E6D3A3] to-[#C6A15B] tracking-wider drop-shadow-md inline-block py-2 leading-normal">
                 अक्षय
               </span>
 
@@ -109,7 +109,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
                 <Heart className="w-5 h-5 md:w-6 md:h-6 text-gold-champagne fill-gold-antique" />
               </motion.div>
 
-              <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#C6A15B] via-[#E6D3A3] to-[#FFF9EA] tracking-wider drop-shadow-md">
+              <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#C6A15B] via-[#E6D3A3] to-[#FFF9EA] tracking-wider drop-shadow-md inline-block py-2 leading-normal">
                 विभूति
               </span>
             </div>
@@ -124,7 +124,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.7, duration: 0.8 }}
-            className="my-4 text-xs sm:text-sm font-devanagari text-cream/90 flex flex-wrap items-center justify-center gap-x-4 gap-y-1"
+            className="my-4 text-xs sm:text-sm font-devanagari text-cream/90 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 leading-relaxed py-1"
           >
             <span>मंगलवार, 24 नवंबर 2026</span>
             <span className="text-gold-antique">•</span>
@@ -152,7 +152,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               
               <Sparkles className="w-5 h-5 text-maroon-darkest group-hover:rotate-12 transition-transform duration-300" />
-              <span className="relative z-10 font-extrabold tracking-wider">
+              <span className="relative z-10 font-extrabold tracking-wider py-0.5 leading-normal">
                 आमंत्रण देखें
               </span>
               <span className="relative z-10 text-xs font-serif font-normal uppercase tracking-widest text-maroon-deep/90 border-l border-maroon-deep/30 pl-2">
@@ -163,7 +163,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             <motion.p
               animate={{ opacity: [0.6, 1, 0.6] }}
               transition={{ repeat: Infinity, duration: 2.5 }}
-              className="text-[11px] font-devanagari text-gold-champagne/75 mt-3 tracking-wider"
+              className="text-[11px] font-devanagari text-gold-champagne/75 mt-3 tracking-wider leading-relaxed"
             >
               ↓ नीचे स्क्रॉल करें अथवा बटन दबाएं
             </motion.p>
