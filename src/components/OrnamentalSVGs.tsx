@@ -823,3 +823,235 @@ export const RoyalMehndiIllustration: React.FC<{ className?: string; size?: numb
   );
 };
 
+// 15. Grand Royal Vivah Mandap Artwork (सप्तपदी विवाह मंडप, अग्नि कुंड एवं मंगल तोरण)
+export const RoyalVivahMandapIllustration: React.FC<{ className?: string; size?: number }> = ({
+  className = '',
+  size = 320,
+}) => {
+  const gradId = `mandap-vivah-${Math.random().toString(36).substr(2, 9)}`;
+
+  return (
+    <svg
+      width={size}
+      height={size * 0.58}
+      viewBox="0 0 400 230"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <defs>
+        {/* Antique Gold Metallic Gradient */}
+        <linearGradient id={`${gradId}-gold`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFF9E6" />
+          <stop offset="25%" stopColor="#E6C875" />
+          <stop offset="60%" stopColor="#C6A15B" />
+          <stop offset="100%" stopColor="#8C621E" />
+        </linearGradient>
+
+        {/* Sacred Flame Gradient */}
+        <radialGradient id={`${gradId}-flame`} cx="50%" cy="80%" r="70%">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="20%" stopColor="#FFF275" />
+          <stop offset="50%" stopColor="#FF8C00" />
+          <stop offset="85%" stopColor="#E63946" />
+          <stop offset="100%" stopColor="#570D19" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Soft Golden Ambient Mandap Glow */}
+        <radialGradient id={`${gradId}-glow`} cx="50%" cy="55%" r="55%">
+          <stop offset="0%" stopColor="#F5D061" stopOpacity="0.4" />
+          <stop offset="60%" stopColor="#E6C875" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#C6A15B" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Copper / Brass Havan Kund Gradient */}
+        <linearGradient id={`${gradId}-kund`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FBD59B" />
+          <stop offset="40%" stopColor="#D97706" />
+          <stop offset="80%" stopColor="#92400E" />
+          <stop offset="100%" stopColor="#451A03" />
+        </linearGradient>
+      </defs>
+
+      {/* Ambient Radiant Glow Behind Altar */}
+      <ellipse cx="200" cy="130" rx="170" ry="85" fill={`url(#${gradId}-glow)`} />
+
+      {/* ─── MANDAP BASE / VEDI (पावन वेदी अधिष्ठान) ─── */}
+      <rect x="25" y="210" width="350" height="14" rx="3" fill={`url(#${gradId}-gold)`} />
+      <rect x="40" y="200" width="320" height="10" rx="2" fill="#570D19" stroke={`url(#${gradId}-gold)`} strokeWidth="1" />
+      <rect x="55" y="193" width="290" height="7" rx="1.5" fill={`url(#${gradId}-gold)`} opacity="0.9" />
+
+      {/* Decorative Dots on Plinth */}
+      <circle cx="80" cy="205" r="2" fill="#FFF9E6" />
+      <circle cx="140" cy="205" r="2" fill="#FFF9E6" />
+      <circle cx="200" cy="205" r="2" fill="#FFF9E6" />
+      <circle cx="260" cy="205" r="2" fill="#FFF9E6" />
+      <circle cx="320" cy="205" r="2" fill="#FFF9E6" />
+
+      {/* ─── FOUR GRAND CARVED PILLARS (स्तंभ) ─── */}
+      {/* Outer Left Pillar */}
+      <g>
+        <rect x="62" y="65" width="16" height="128" fill={`url(#${gradId}-gold)`} rx="2" />
+        <rect x="66" y="75" width="8" height="108" fill="#570D19" rx="1" />
+        {/* Pillar Capital & Base */}
+        <path d="M 56 65 L 84 65 L 78 75 L 62 75 Z" fill={`url(#${gradId}-gold)`} />
+        <path d="M 56 193 L 84 193 L 78 183 L 62 183 Z" fill={`url(#${gradId}-gold)`} />
+      </g>
+
+      {/* Inner Left Pillar */}
+      <g>
+        <rect x="122" y="65" width="18" height="128" fill={`url(#${gradId}-gold)`} rx="2" />
+        <rect x="127" y="75" width="8" height="108" fill="#570D19" rx="1" />
+        <path d="M 115 65 L 147 65 L 140 75 L 122 75 Z" fill={`url(#${gradId}-gold)`} />
+        <path d="M 115 193 L 147 193 L 140 183 L 122 183 Z" fill={`url(#${gradId}-gold)`} />
+      </g>
+
+      {/* Inner Right Pillar */}
+      <g>
+        <rect x="260" y="65" width="18" height="128" fill={`url(#${gradId}-gold)`} rx="2" />
+        <rect x="265" y="75" width="8" height="108" fill="#570D19" rx="1" />
+        <path d="M 253 65 L 285 65 L 278 75 L 260 75 Z" fill={`url(#${gradId}-gold)`} />
+        <path d="M 253 193 L 285 193 L 278 183 L 260 183 Z" fill={`url(#${gradId}-gold)`} />
+      </g>
+
+      {/* Outer Right Pillar */}
+      <g>
+        <rect x="322" y="65" width="16" height="128" fill={`url(#${gradId}-gold)`} rx="2" />
+        <rect x="326" y="75" width="8" height="108" fill="#570D19" rx="1" />
+        <path d="M 316 65 L 344 65 L 338 75 L 322 75 Z" fill={`url(#${gradId}-gold)`} />
+        <path d="M 316 193 L 344 193 L 338 183 L 322 183 Z" fill={`url(#${gradId}-gold)`} />
+      </g>
+
+      {/* ─── SCALLOPED ROYAL ARCHWAY (तोरण एवं मेहराब) ─── */}
+      <path
+        d="M 122 80 C 140 68 170 65 200 65 C 230 65 260 68 278 80"
+        stroke={`url(#${gradId}-gold)`}
+        strokeWidth="3.5"
+        fill="none"
+      />
+      <path
+        d="M 130 88 C 145 78 172 75 200 75 C 228 75 255 78 270 88"
+        stroke="#570D19"
+        strokeWidth="1.5"
+        fill="none"
+      />
+
+      {/* Hanging Golden Temple Bells (मंगल घंटियां) */}
+      <g transform="translate(160, 85)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke={`url(#${gradId}-gold)`} strokeWidth="1" />
+        <path d="M -4 12 L 4 12 L 5 18 L -5 18 Z" fill={`url(#${gradId}-gold)`} />
+        <circle cx="0" cy="19" r="1.5" fill="#FFE57F" />
+      </g>
+      <g transform="translate(240, 85)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke={`url(#${gradId}-gold)`} strokeWidth="1" />
+        <path d="M -4 12 L 4 12 L 5 18 L -5 18 Z" fill={`url(#${gradId}-gold)`} />
+        <circle cx="0" cy="19" r="1.5" fill="#FFE57F" />
+      </g>
+
+      {/* Marigold & Jasmine Floral Garland Drapes (गेंदा पुष्प माला तोरण) */}
+      <path
+        d="M 62 76 Q 92 90 122 76"
+        stroke="#F59E0B"
+        strokeWidth="3"
+        strokeDasharray="2 3"
+        fill="none"
+      />
+      <path
+        d="M 122 76 Q 200 102 278 76"
+        stroke="#F59E0B"
+        strokeWidth="3.5"
+        strokeDasharray="3 4"
+        fill="none"
+      />
+      <path
+        d="M 278 76 Q 308 90 338 76"
+        stroke="#F59E0B"
+        strokeWidth="3"
+        strokeDasharray="2 3"
+        fill="none"
+      />
+      {/* Jasmine White Accent Garland */}
+      <path
+        d="M 124 82 Q 200 106 276 82"
+        stroke="#FFFDF5"
+        strokeWidth="1.8"
+        strokeDasharray="2 3"
+        fill="none"
+        opacity="0.85"
+      />
+
+      {/* ─── ROYAL DOME CANOPY (राजसी वितान / मंडप छत्र) ─── */}
+      <path
+        d="M 45 65 L 355 65 L 335 48 C 305 45 285 30 250 20 C 225 12 210 5 200 2 C 190 5 175 12 150 20 C 115 30 95 45 65 48 Z"
+        fill="#570D19"
+        stroke={`url(#${gradId}-gold)`}
+        strokeWidth="2.5"
+      />
+      {/* Inner Dome Gold Arch Ribs */}
+      <path
+        d="M 75 62 C 110 46 150 24 200 8 C 250 24 290 46 325 62"
+        stroke={`url(#${gradId}-gold)`}
+        strokeWidth="1.5"
+        fill="none"
+      />
+      <line x1="200" y1="8" x2="200" y2="62" stroke={`url(#${gradId}-gold)`} strokeWidth="1.5" />
+
+      {/* Crown Kalash Finial with Auspicious Coconut & Mango Leaves (शिखर कलश) */}
+      <g transform="translate(200, 2)">
+        <circle cx="0" cy="-6" r="5" fill={`url(#${gradId}-gold)`} />
+        {/* Coconut & Mango Leaves */}
+        <ellipse cx="0" cy="-14" rx="4.5" ry="6" fill="#8B4513" stroke={`url(#${gradId}-gold)`} strokeWidth="1" />
+        <path d="M -6 -11 C -4 -16 0 -18 0 -18 C 0 -18 4 -16 6 -11 Z" fill="#10B981" />
+        <circle cx="0" cy="-21" r="2" fill="#FFF9E6" />
+      </g>
+
+      {/* ─── SACRED HAVAN KUND WITH FLICKERING VEDIC FIRE (अग्नि कुंड) ─── */}
+      {/* Left Mangal Kalash */}
+      <g transform="translate(150, 185)">
+        <ellipse cx="0" cy="5" rx="9" ry="7" fill={`url(#${gradId}-gold)`} />
+        <rect x="-4" y="-1" width="8" height="3" fill="#570D19" />
+        <ellipse cx="0" cy="-4" rx="4" ry="4" fill="#8B4513" />
+        <path d="M -5 -3 L 0 -8 L 5 -3 Z" fill="#10B981" />
+      </g>
+
+      {/* Right Mangal Kalash */}
+      <g transform="translate(250, 185)">
+        <ellipse cx="0" cy="5" rx="9" ry="7" fill={`url(#${gradId}-gold)`} />
+        <rect x="-4" y="-1" width="8" height="3" fill="#570D19" />
+        <ellipse cx="0" cy="-4" rx="4" ry="4" fill="#8B4513" />
+        <path d="M -5 -3 L 0 -8 L 5 -3 Z" fill="#10B981" />
+      </g>
+
+      {/* Stepped Copper Havan Kund Altar */}
+      <g transform="translate(200, 180)">
+        {/* Tier 1 - Bottom Plinth */}
+        <path d="M -36 12 L 36 12 L 30 18 L -30 18 Z" fill={`url(#${gradId}-kund)`} stroke={`url(#${gradId}-gold)`} strokeWidth="0.8" />
+        {/* Tier 2 - Middle Stepped Kund */}
+        <path d="M -28 4 L 28 4 L 33 12 L -33 12 Z" fill={`url(#${gradId}-kund)`} stroke={`url(#${gradId}-gold)`} strokeWidth="0.8" />
+        {/* Tier 3 - Top Fire Well */}
+        <path d="M -22 -3 L 22 -3 L 26 4 L -26 4 Z" fill="#3B0E05" stroke={`url(#${gradId}-gold)`} strokeWidth="1" />
+
+        {/* Sacred Agni Radiance / Flames */}
+        {/* Outer Flame Glow */}
+        <ellipse cx="0" cy="-18" rx="16" ry="22" fill={`url(#${gradId}-flame)`} opacity="0.9" />
+
+        {/* Main Sacred Flame Tongue */}
+        <path
+          d="M 0 -38 C 9 -26 15 -14 10 -4 C 5 2 -5 2 -10 -4 C -15 -14 -9 -26 0 -38 Z"
+          fill={`url(#${gradId}-flame)`}
+        />
+        {/* Inner Bright Gold Flame */}
+        <path
+          d="M 0 -30 C 5 -20 8 -12 5 -4 C 2 0 -2 0 -5 -4 C -8 -12 -5 -20 0 -30 Z"
+          fill="#FFF9E6"
+        />
+        {/* Rising Sacred Embers / Sparks */}
+        <circle cx="-5" cy="-44" r="1.5" fill="#FFE57F" />
+        <circle cx="4" cy="-48" r="1.2" fill="#FF8C00" />
+        <circle cx="1" cy="-52" r="1" fill="#FFF9E6" />
+      </g>
+    </svg>
+  );
+};
+
+

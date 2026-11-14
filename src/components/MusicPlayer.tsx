@@ -83,7 +83,10 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = () => {
         loop
         preload="metadata"
         playsInline
-      />
+      >
+        <source src="/namokar-mantra.mp3" type="audio/mpeg" />
+        <source src="/namokar-mantra.mp3" type="audio/mp3" />
+      </audio>
 
       <button
         onClick={togglePlay}
