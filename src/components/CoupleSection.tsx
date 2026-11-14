@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CornerOrnament, GoldDivider } from './OrnamentalSVGs';
+import { CornerOrnament, GoldDivider, SacredDiya } from './OrnamentalSVGs';
 import { MapPin, Heart } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -15,7 +15,7 @@ export const CoupleSection: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-10 md:mb-16"
+        className="text-center mb-10 md:mb-14"
       >
         <span className="text-xs uppercase tracking-[0.3em] font-serif text-gold-champagne/80 block mb-1">
           {t.theAuspiciousUnion}
@@ -29,7 +29,76 @@ export const CoupleSection: React.FC = () => {
         <GoldDivider className="max-w-xs mx-auto mt-4" />
       </motion.div>
 
-      {/* Symmetrical Couple Cards Grid */}
+      {/* ─── AI-GENERATED ROYAL BRIDE & GROOM PORTRAIT CENTERPIECE ─── */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        className="relative max-w-md sm:max-w-lg mx-auto mb-12 sm:mb-16"
+      >
+        {/* Soft Golden Halo Glow */}
+        <div className="absolute -inset-3 bg-gradient-to-b from-gold-antique/25 via-gold-champagne/15 to-transparent rounded-[90px] sm:rounded-[120px] blur-2xl opacity-70 pointer-events-none" />
+
+        {/* Grand Palace Arch Frame Container */}
+        <div className="relative border-2 border-gold-antique/90 bg-gradient-to-b from-maroon-deep/95 via-maroon-burgundy to-maroon-darkest rounded-t-[90px] sm:rounded-t-[120px] rounded-b-3xl p-3 sm:p-5 shadow-2xl backdrop-blur-md overflow-hidden">
+          
+          {/* Inner Golden Border Insets */}
+          <div className="absolute inset-1.5 sm:inset-2.5 border border-gold-champagne/40 rounded-t-[84px] sm:rounded-t-[112px] rounded-b-2xl pointer-events-none" />
+          <div className="absolute inset-3 sm:inset-4 border border-gold-antique/20 rounded-t-[76px] sm:rounded-t-[104px] rounded-b-xl pointer-events-none" />
+
+          {/* Corner Filigrees on bottom */}
+          <CornerOrnament position="bottom-left" className="absolute bottom-2 left-2 opacity-80 z-10" size={28} />
+          <CornerOrnament position="bottom-right" className="absolute bottom-2 right-2 opacity-80 z-10" size={28} />
+
+          {/* Auspicious Arch Top Motif */}
+          <div className="flex items-center justify-center gap-2 pt-2 pb-3">
+            <SacredDiya size={22} className="opacity-80" />
+            <span className="font-devanagari text-[11px] sm:text-xs font-bold text-gold-champagne tracking-widest uppercase leading-normal">
+              {t.couplePortraitTag}
+            </span>
+            <SacredDiya size={22} className="opacity-80" />
+          </div>
+
+          {/* Portrait Image Container */}
+          <div className="relative rounded-t-[72px] sm:rounded-t-[98px] rounded-b-xl overflow-hidden shadow-inner border border-gold-antique/40 aspect-[3/4] max-h-[480px] w-full bg-maroon-darkest">
+            <img
+              src="/bride-groom.jpg"
+              alt="Akshay and Vibhuti - Royal Jain Wedding Couple"
+              className="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.01] hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+            {/* Subtle Vignette Overlay for Seamless Color Blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-maroon-darkest via-transparent to-maroon-deep/30 pointer-events-none" />
+            <div className="absolute inset-0 border border-gold-antique/30 rounded-t-[72px] sm:rounded-t-[98px] rounded-b-xl pointer-events-none" />
+          </div>
+
+          {/* Portrait Caption Plate */}
+          <div className="pt-4 pb-2 text-center">
+            <div className="flex items-center justify-center gap-2">
+              <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique leading-normal py-0.5">
+                {t.groomName}
+              </span>
+              <motion.div
+                animate={{ scale: [1, 1.15, 1] }}
+                transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+                className="p-1 rounded-full bg-maroon-darkest border border-gold-antique/40"
+              >
+                <Heart className="w-4 h-4 text-gold-champagne fill-gold-antique" />
+              </motion.div>
+              <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-antique via-gold-champagne to-gold-pale leading-normal py-0.5">
+                {t.brideName}
+              </span>
+            </div>
+            <p className="font-cormorant text-xs sm:text-sm tracking-[0.2em] uppercase text-gold-champagne/80 mt-0.5 font-medium">
+              {t.coupleNamesFull}
+            </p>
+          </div>
+
+        </div>
+      </motion.div>
+
+      {/* ─── SYMMETRICAL COUPLE CARDS GRID (वर एवं वधु) ─── */}
       <div className="relative grid grid-cols-1 lg:grid-cols-11 gap-6 lg:gap-4 items-center">
         
         {/* GROOM CARD (वर) */}

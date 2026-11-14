@@ -48,6 +48,8 @@ export const translations = {
     theAuspiciousUnion: 'पावन मिलन',
     varEvamVadhu: 'वर एवं वधु',
     coupleTagline: 'श्रद्धा, परंपरा और प्रेम से बंधे दो जीव',
+    couplePortraitTag: '॥ राजसी युगल दर्शन ॥',
+    coupleNamesFull: 'अक्षय एवं विभूति',
     varLabel: '॥ वर ॥',
     vadhuLabel: '॥ वधु ॥',
     suputraOf: 'सुपुत्र:',
@@ -206,6 +208,8 @@ export const translations = {
     theAuspiciousUnion: 'The Auspicious Union',
     varEvamVadhu: 'The Bride & Groom',
     coupleTagline: 'Two Souls Bound by Faith, Tradition & Love',
+    couplePortraitTag: '॥ The Royal Couple ॥',
+    coupleNamesFull: 'Akshay & Vibhuti',
     varLabel: '॥ Groom ॥',
     vadhuLabel: '॥ Bride ॥',
     suputraOf: 'Son of:',
@@ -329,3 +333,4 @@ export const translations = {
 } as const;
 
 export type TranslationKey = keyof typeof translations.hi;
+

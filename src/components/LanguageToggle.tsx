@@ -103,3 +103,4 @@ export const LanguageToggle: React.FC = () => {
     </motion.div>
   );
 };
+
