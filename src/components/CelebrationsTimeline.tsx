@@ -673,7 +673,7 @@ export const CelebrationsTimeline: React.FC = () => {
                       </div>
                     </div>
                     <a
-                      href="https://maps.google.com/?q=Hotel+Madurai+Udaipole+Udaipur+Rajasthan"
+                      href="https://www.google.com/maps/place/Hotel+Madurai/@24.5771991,73.6984737,17z/data=!3m1!4b1!4m9!3m8!1s0x3967e581e14a0677:0x1cde58ccaa7542a4"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-[#C6A15B]/70 text-[#570D19] font-devanagari text-xs font-bold hover:bg-[#570D19] hover:text-[#FFF8E7] transition-all shadow-xs"

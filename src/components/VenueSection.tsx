@@ -11,9 +11,7 @@ export const VenueSection: React.FC = () => {
   const venueName = 'Hotel Madurai';
   const fullAddress = '118 Hotel Street, Udaipole Road Behind HDFC Bank, Udaipole, Shrinath Market, Udaipur, Rajasthan 313001';
   
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${venueName}, ${fullAddress}`
-  )}`;
+  const googleMapsUrl = 'https://www.google.com/maps/place/Hotel+Madurai/@24.5771991,73.6984737,17z/data=!3m1!4b1!4m9!3m8!1s0x3967e581e14a0677:0x1cde58ccaa7542a4';
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(`${venueName}, ${fullAddress}`);
@@ -161,13 +159,13 @@ export const VenueSection: React.FC = () => {
             </div>
             <iframe
               title="Hotel Madurai Udaipur Google Map Location"
-              src="https://maps.google.com/maps?q=Hotel+Madurai+118+Hotel+Street+Udaipole+Road+Behind+HDFC+Bank+Udaipole+Shrinath+Market+Udaipur+Rajasthan+313001&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.347549130966!2d73.69847367536192!3d24.57719907811547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e581e14a0677%3A0x1cde58ccaa7542a4!2sHotel%20Madurai!5e0!3m2!1sen!2sin!4v1794637962844!5m2!1sen!2sin"
               width="100%"
-              height="280"
-              style={{ border: 0, filter: 'contrast(1.05) saturate(1.1)' }}
-              allowFullScreen={false}
+              height="320"
+              style={{ border: 0 }}
+              allowFullScreen={true}
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
               className="w-full"
             />
           </div>
