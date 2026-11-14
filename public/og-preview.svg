@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#6B1322" />
+      <stop offset="45%" stop-color="#570D19" />
+      <stop offset="80%" stop-color="#380710" />
+      <stop offset="100%" stop-color="#1E0307" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF5" />
+      <stop offset="30%" stop-color="#E8D5A7" />
+      <stop offset="65%" stop-color="#C6A15B" />
+      <stop offset="100%" stop-color="#8B6F30" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+
+  <!-- Outer Golden Border -->
+  <rect x="25" y="25" width="1150" height="580" fill="none" stroke="url(#goldGrad)" stroke-width="3" rx="20" />
+  <rect x="35" y="35" width="1130" height="560" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="8 6" rx="15" />
+
+  <!-- Jain Auspicious Symbol -->
+  <g transform="translate(600, 110) scale(1.1)">
+    <!-- Crescent & Dot -->
+    <path d="M -30 -40 C -15 -32 15 -32 30 -40 C 20 -30 -20 -30 -30 -40 Z" fill="url(#goldGrad)" />
+    <circle cx="0" cy="-48" r="4" fill="url(#goldGrad)" />
+    <!-- Three dots -->
+    <circle cx="-18" cy="-22" r="3.5" fill="url(#goldGrad)" />
+    <circle cx="0" cy="-22" r="3.5" fill="url(#goldGrad)" />
+    <circle cx="18" cy="-22" r="3.5" fill="url(#goldGrad)" />
+    <!-- Swastika -->
+    <g transform="scale(0.9)" stroke="url(#goldGrad)" stroke-width="3" fill="none">
+      <line x1="0" y1="-12" x2="0" y2="12" />
+      <line x1="-12" y1="0" x2="12" y2="0" />
+      <line x1="0" y1="-12" x2="8" y2="-12" />
+      <line x1="0" y1="12" x2="-8" y2="12" />
+      <line x1="-12" y1="0" x2="-12" y2="-8" />
+      <line x1="12" y1="0" x2="12" y2="8" />
+    </g>
+  </g>
+
+  <!-- Top Title -->
+  <text x="600" y="210" text-anchor="middle" font-family="serif" font-size="20" letter-spacing="8" fill="#E6D3A3">
+    ROYAL JAIN WEDDING INVITATION
+  </text>
+  <text x="600" y="275" text-anchor="middle" font-family="serif" font-weight="bold" font-size="52" fill="url(#goldGrad)">
+    ॥ शुभ विवाह ॥
+  </text>
+
+  <!-- Divider -->
+  <line x1="450" y1="305" x2="750" y2="305" stroke="url(#goldGrad)" stroke-width="2" />
+  <circle cx="600" cy="305" r="5" fill="#FFFDF5" />
+
+  <!-- Couple Names -->
+  <text x="600" y="390" text-anchor="middle" font-family="serif" font-weight="bold" font-size="64" fill="url(#goldGrad)">
+    अक्षय  ❤️  विभूति
+  </text>
+  <text x="600" y="440" text-anchor="middle" font-family="serif" font-size="24" letter-spacing="6" fill="#FFF8E9">
+    AKSHAY &amp; VIBHUTI
+  </text>
+
+  <!-- Dates and Location -->
+  <text x="600" y="505" text-anchor="middle" font-family="serif" font-size="22" fill="#E6D3A3">
+    मंगलवार, 24 नवंबर &amp; बुधवार, 25 नवंबर 2026
+  </text>
+  <text x="600" y="545" text-anchor="middle" font-family="serif" font-size="18" fill="#FFF8E9" opacity="0.9">
+    होटल मदुरै, उदयपोल, उदयपुर (राजस्थान)
+  </text>
+</svg>

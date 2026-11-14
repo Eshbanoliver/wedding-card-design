@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8E7" />
+      <stop offset="35%" stop-color="#E6D3A3" />
+      <stop offset="70%" stop-color="#C6A15B" />
+      <stop offset="100%" stop-color="#8B6F30" />
+    </linearGradient>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#570D19" />
+      <stop offset="100%" stop-color="#24040A" />
+    </radialGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+  <circle cx="50" cy="50" r="44" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" stroke-dasharray="2,2" />
+  
+  <!-- Sacred Jain Kalash Motif -->
+  <!-- Base of Kalash -->
+  <path d="M 36 76 L 64 76 L 60 80 L 40 80 Z" fill="url(#goldGrad)" />
+  <!-- Pot Body -->
+  <path d="M 34 52 C 26 62 30 76 50 76 C 70 76 74 62 66 52 C 63 48 58 48 50 48 C 42 48 37 48 34 52 Z" fill="url(#goldGrad)" />
+  <!-- Neck of Kalash -->
+  <path d="M 38 48 L 62 48 L 65 44 L 35 44 Z" fill="url(#goldGrad)" />
+  <!-- Mango Leaves -->
+  <path d="M 50 44 C 44 38 34 38 30 42 C 34 46 44 45 50 44 Z" fill="url(#goldGrad)" />
+  <path d="M 50 44 C 56 38 66 38 70 42 C 66 46 56 45 50 44 Z" fill="url(#goldGrad)" />
+  <path d="M 50 44 C 48 34 40 32 38 30 C 44 32 49 38 50 44 Z" fill="url(#goldGrad)" />
+  <path d="M 50 44 C 52 34 60 32 62 30 C 56 32 51 38 50 44 Z" fill="url(#goldGrad)" />
+  <!-- Coconut on Top -->
+  <circle cx="50" cy="34" r="8" fill="url(#goldGrad)" />
+  <!-- Coconut Tip -->
+  <path d="M 47 27 C 50 20 50 20 53 27 Z" fill="url(#goldGrad)" />
+
+  <!-- Auspicious Swastika inside Pot Body -->
+  <g transform="translate(50, 63) scale(0.65)" stroke="#380710" stroke-width="2.2" stroke-linecap="square" fill="none">
+    <line x1="0" y1="-9" x2="0" y2="9" />
+    <line x1="-9" y1="0" x2="9" y2="0" />
+    <line x1="0" y1="-9" x2="6" y2="-9" />
+    <line x1="0" y1="9" x2="-6" y2="9" />
+    <line x1="-9" y1="0" x2="-9" y2="-6" />
+    <line x1="9" y1="0" x2="9" y2="6" />
+  </g>
+</svg>

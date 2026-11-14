@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-maroon-deep: #570D19;
+  --color-maroon-burgundy: #380710;
+  --color-gold-antique: #C6A15B;
+  --color-gold-champagne: #E6D3A3;
+  --color-ivory: #FFF8E9;
+  --color-cream: #F5EBD7;
+}
+
+/* Custom smooth scrollbar in royal gold */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #380710;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8B6F30, #C6A15B, #8B6F30);
+  border-radius: 4px;
+  border: 1px solid #E6D3A3;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #C6A15B, #FFF8E7, #C6A15B);
+}
+
+/* Antique Gold Metallic Text Gradient */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #FFF9EA 0%, #E8D5A7 20%, #C6A15B 45%, #9E7B35 70%, #E8D5A7 90%, #FAF0D7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(198, 161, 91, 0.2);
+}
+
+.gold-text-bright {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF3D6 25%, #E6D3A3 50%, #C6A15B 80%, #DFBA73 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Antique Gold Foil Borders and Boxes */
+.gold-border-ornate {
+  border: 1px solid #C6A15B;
+  box-shadow: 0 0 15px rgba(198, 161, 91, 0.25), inset 0 0 15px rgba(198, 161, 91, 0.15);
+}
+
+.gold-border-double {
+  border: 2px solid #C6A15B;
+  outline: 1px solid #8B6F30;
+  outline-offset: -5px;
+}
+
+/* Traditional Royal Card Styling */
+.royal-card {
+  background: linear-gradient(165deg, rgba(87, 13, 25, 0.85) 0%, rgba(56, 7, 16, 0.95) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  box-shadow: 0 10px 30px rgba(26, 3, 7, 0.6), inset 0 0 20px rgba(198, 161, 91, 0.1);
+}
+
+.royal-card-highlight {
+  background: linear-gradient(165deg, rgba(95, 15, 28, 0.92) 0%, rgba(48, 6, 14, 0.96) 100%);
+  border: 1.5px solid rgba(230, 211, 163, 0.65);
+  box-shadow: 0 15px 40px rgba(26, 3, 7, 0.75), 0 0 25px rgba(198, 161, 91, 0.25), inset 0 0 25px rgba(198, 161, 91, 0.15);
+}
+
+/* Shimmer Light Sweep Effect */
+@keyframes goldShine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-shine {
+  background: linear-gradient(90deg, #C6A15B 0%, #FFF8E7 50%, #C6A15B 100%);
+  background-size: 200% 100%;
+  animation: goldShine 5s infinite linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle Hanging Bell Sway */
+@keyframes bellSwayLeft {
+  0%, 100% { transform: rotate(0deg); transform-origin: top center; }
+  50% { transform: rotate(3deg); transform-origin: top center; }
+}
+
+@keyframes bellSwayRight {
+  0%, 100% { transform: rotate(0deg); transform-origin: top center; }
+  50% { transform: rotate(-3deg); transform-origin: top center; }
+}
+
+.bell-sway-1 {
+  animation: bellSwayLeft 3.5s ease-in-out infinite;
+}
+
+.bell-sway-2 {
+  animation: bellSwayRight 4s ease-in-out infinite;
+}
+
+/* Subtle Diya Flame Flicker */
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.9; }
+  25% { transform: scale(1.06, 0.96) translateY(-1px); opacity: 1; }
+  50% { transform: scale(0.95, 1.04) translateY(1px); opacity: 0.85; }
+  75% { transform: scale(1.03, 0.98) translateY(0); opacity: 0.95; }
+}
+
+.diya-flicker {
+  animation: flameFlicker 2s ease-in-out infinite;
+}
