@@ -230,7 +230,34 @@ export const CelebrationsTimeline: React.FC = () => {
                   <div className="absolute inset-0 bg-[radial-gradient(#C6A15B_1px,transparent_1px)] [background-size:22px_22px] opacity-[0.14] pointer-events-none" />
                 )}
 
-                {/* ─── GHIBLI ART SACRED PHERAS BACKGROUND (30% OPACITY) ─── */}
+                {/* ─── GHIBLI ART CEREMONY BACKGROUNDS (Respective to Headings) ─── */}
+                {/* 1. Haldi Ceremony Ghibli Art Background (30% Opacity) */}
+                {isHaldi && (
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
+                    <img
+                      src="/ghibli-haldi.jpg"
+                      alt="Haldi Ceremony Studio Ghibli Art"
+                      className="w-full h-full object-cover object-center opacity-30"
+                    />
+                    {/* Warm amber-marigold color wash ensuring 100% content legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#321703]/75 via-[#220D02]/60 to-[#150602]/85" />
+                  </div>
+                )}
+
+                {/* 2. Mehndi Ceremony Ghibli Art Background (30% Opacity) */}
+                {isMehndi && (
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
+                    <img
+                      src="/ghibli-mehndi.jpg"
+                      alt="Mehndi Ceremony Studio Ghibli Art"
+                      className="w-full h-full object-cover object-center opacity-30"
+                    />
+                    {/* Rich henna-emerald garden color wash ensuring 100% content legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#082915]/75 via-[#041E0F]/60 to-[#021208]/85" />
+                  </div>
+                )}
+
+                {/* 3. Sacred Pheras Vivah Ghibli Art Background (30% Opacity) */}
                 {isMain && (
                   <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
                     <img
