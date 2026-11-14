@@ -53,7 +53,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               transition={{ delay: 0.7, duration: 0.8 }}
               className="text-xs md:text-sm font-devanagari text-gold-champagne tracking-widest mt-1 opacity-90"
             >
-              ॥ ॐ श्री पार्श्वनाथाय नमः ॥
+              ॥ ॐ श्री ऋषभदेवाय नमः ॥
             </motion.p>
           </motion.div>
 
