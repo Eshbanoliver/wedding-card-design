@@ -114,7 +114,7 @@ export const FamilyWelcome: React.FC = () => {
                 </p>
               </motion.div>
 
-              {/* Host Card 2: प्रणय 'जी' एवं अनंत */}
+              {/* Host Card 2: प्रणय एवं अनंत */}
               <motion.div
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ duration: 0.25 }}

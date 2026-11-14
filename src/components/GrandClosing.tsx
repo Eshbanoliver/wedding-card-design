@@ -68,7 +68,7 @@ export const GrandClosing: React.FC = () => {
 
             <GoldDivider className="max-w-xs mx-auto my-4" />
 
-            {/* Final Text: सादर आमंत्रित | अक्षय ❤️ विभूति */}
+            {/* Final Text: सादर आमंत्रित | विभूति ❤️ अक्षय */}
             <div className="my-6">
               <span className="font-devanagari text-xs sm:text-sm uppercase tracking-widest text-gold-champagne font-bold block mb-2 leading-normal py-0.5">
                 {t.rsvpLabel}
@@ -77,7 +77,7 @@ export const GrandClosing: React.FC = () => {
               {/* Royal Couple Monogram Medallion */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-2">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique drop-shadow-md inline-block py-2 leading-normal">
-                  {t.groomName}
+                  {t.brideName}
                 </span>
                 <motion.div
                   animate={{ scale: [1, 1.25, 1] }}
@@ -89,12 +89,12 @@ export const GrandClosing: React.FC = () => {
                   <Heart className="w-6 h-6 text-gold-champagne fill-gold-antique" />
                 </motion.div>
                 <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-antique via-gold-champagne to-gold-pale drop-shadow-md inline-block py-2 leading-normal">
-                  {t.brideName}
+                  {t.groomName}
                 </span>
               </div>
 
               <p className="font-cormorant text-xs sm:text-sm tracking-[0.25em] uppercase text-gold-champagne/80 font-bold mt-1">
-                Akshay &amp; Vibhuti
+                Vibhuti &amp; Akshay
               </p>
             </div>
 

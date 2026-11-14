@@ -46,7 +46,7 @@ export const translations = {
 
     // ─── COUPLE SECTION ──────────────────────────────────
     theAuspiciousUnion: 'पावन मिलन',
-    varEvamVadhu: 'वर एवं वधु',
+    varEvamVadhu: 'वधु एवं वर',
     coupleTagline: 'श्रद्धा, परंपरा और प्रेम से बंधे दो जीव',
     couplePortraitTag: '॥ राजसी युगल दर्शन ॥',
     coupleNamesFull: 'विभूति एवं अक्षय',
@@ -136,8 +136,8 @@ export const translations = {
     snehaSwagat: 'स्नेही स्वागतकर्ता',
     host1Hi: 'आस्था एवं निहाल जी',
     host1En: 'Astha & Nihal Ji',
-    host2Hi: "प्रणय 'जी' एवं अनंत",
-    host2En: "Pranay 'Ji' & Anant",
+    host2Hi: 'प्रणय एवं अनंत',
+    host2En: 'Pranay & Anant',
     closingNote: 'समस्त परिवारजन आपके स्नेहपूर्ण शुभाशीर्वाद के अभिलाषी हैं।',
 
     // ─── GRAND CLOSING ───────────────────────────────────
@@ -298,8 +298,8 @@ export const translations = {
     snehaSwagat: 'Cordial Hosts',
     host1Hi: 'Astha & Nihal Ji',
     host1En: 'Astha & Nihal Ji',
-    host2Hi: "Pranay 'Ji' & Anant",
-    host2En: "Pranay 'Ji' & Anant",
+    host2Hi: 'Pranay & Anant',
+    host2En: 'Pranay & Anant',
     closingNote: 'All family members seek your loving blessings and presence.',
 
     // ─── GRAND CLOSING ───────────────────────────────────

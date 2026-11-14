@@ -50,14 +50,14 @@ export const RoyalFooter: React.FC = () => {
 
           <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-gold-antique to-transparent mx-auto my-3" />
 
-          {/* Couple Names: अक्षय ❤️ विभूति */}
+          {/* Couple Names: विभूति ❤️ अक्षय */}
           <div className="flex items-center justify-center gap-2 my-3">
             <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale to-gold-antique inline-block leading-normal py-1">
-              {t.groomName}
+              {t.brideName}
             </span>
             <Heart className="w-4 h-4 text-gold-champagne fill-gold-antique" />
             <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-antique to-gold-pale inline-block leading-normal py-1">
-              {t.brideName}
+              {t.groomName}
             </span>
           </div>
 

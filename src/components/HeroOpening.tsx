@@ -49,9 +49,9 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
           >
             <div className="relative p-1.5 flex items-center justify-center">
               <img
-                src="/jain-symbol-brass.png"
+                src="/logo123.png"
                 onError={(e) => {
-                  e.currentTarget.src = '/images.jfif';
+                  e.currentTarget.src = '/jain-symbol-brass.png';
                 }}
                 alt="Jain Prateek Chinha"
                 className="w-12 sm:w-14 max-h-20 object-contain filter drop-shadow-[0_0_12px_rgba(198,161,91,0.55)] hover:scale-105 transition-transform duration-300"
