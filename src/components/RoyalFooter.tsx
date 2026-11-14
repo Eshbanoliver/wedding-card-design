@@ -1,6 +1,6 @@
 import React from 'react';
 import { JainSymbol, CornerOrnament } from './OrnamentalSVGs';
-import { Heart } from 'lucide-react';
+import { Heart, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const RoyalFooter: React.FC = () => {
@@ -75,6 +75,17 @@ export const RoyalFooter: React.FC = () => {
             <span>{t.footerLocations}</span>
             <span className="text-gold-antique font-serif">{t.footerMantra}</span>
             <span>{t.footerDates}</span>
+          </div>
+
+          {/* Smooth Scroll to Top Button */}
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-gold-antique/50 bg-maroon-darkest/90 hover:bg-gold-antique hover:text-maroon-darkest text-gold-champagne text-xs font-devanagari font-bold transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 leading-normal"
+            >
+              <ChevronUp className="w-3.5 h-3.5 text-gold-champagne" />
+              <span className="py-0.5">शीर्ष पर जाएँ (Back to Top)</span>
+            </button>
           </div>
         </div>
 
