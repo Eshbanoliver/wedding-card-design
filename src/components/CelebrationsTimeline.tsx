@@ -230,6 +230,19 @@ export const CelebrationsTimeline: React.FC = () => {
                   <div className="absolute inset-0 bg-[radial-gradient(#C6A15B_1px,transparent_1px)] [background-size:22px_22px] opacity-[0.14] pointer-events-none" />
                 )}
 
+                {/* ─── GHIBLI ART SACRED PHERAS BACKGROUND (30% OPACITY) ─── */}
+                {isMain && (
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
+                    <img
+                      src="/ghibli-pheras.jpg"
+                      alt="Sacred Pheras Studio Ghibli Art"
+                      className="w-full h-full object-cover object-center opacity-30 mix-blend-multiply"
+                    />
+                    {/* Delicate warm beige wash to ensure maximum content contrast & legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/40 via-transparent to-[#ECE0C8]/50" />
+                  </div>
+                )}
+
                 {/* Inner Decorative Borders */}
                 <div
                   className={`absolute inset-2 border rounded-2xl pointer-events-none ${
@@ -308,8 +321,10 @@ export const CelebrationsTimeline: React.FC = () => {
                   size={isMain ? 34 : 26}
                 />
 
-                {/* ─── EVENT TOP BADGE ─── */}
-                <div className="flex justify-center mb-4">
+                {/* ─── CARD CONTENT CONTAINER (z-10 for complete visibility over background) ─── */}
+                <div className="relative z-10">
+                  {/* ─── EVENT TOP BADGE ─── */}
+                  <div className="flex justify-center mb-4">
                   <div
                     className={`inline-flex items-center gap-2 px-5 py-1.5 rounded-full border shadow-sm ${
                       isHaldi
@@ -684,6 +699,7 @@ export const CelebrationsTimeline: React.FC = () => {
                   )}
                 </div>
               </div>
+            </div>
             </motion.div>
           );
         })}
