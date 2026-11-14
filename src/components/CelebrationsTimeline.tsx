@@ -21,7 +21,7 @@ export const CelebrationsTimeline: React.FC = () => {
   }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const weddingDate = new Date('2026-11-25T07:00:00+05:30').getTime();
+    const weddingDate = new Date('2026-11-25T09:00:00+05:30').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -417,10 +417,10 @@ export const CelebrationsTimeline: React.FC = () => {
                     href={createGoogleCalendarUrl(
                       `Akshay & Vibhuti - ${evt.nameEn}`,
                       evt.id === 'wedding'
-                        ? '20261125T070000'
+                        ? '20261125T090000'
                         : evt.id === 'haldi'
-                        ? '20261124T100000'
-                        : '20261124T160000',
+                        ? '20261124T150000'
+                        : '20261124T180000',
                       `Royal Jain Wedding of Akshay & Vibhuti. Ceremony: ${evt.nameHi} (${evt.nameEn}). Venue: Hotel Madurai, Udaipur, Rajasthan.`
                     )}
                     target="_blank"
