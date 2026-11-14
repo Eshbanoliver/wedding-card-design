@@ -503,3 +503,117 @@ export const RoyalMandapIllustration: React.FC<{ className?: string }> = ({ clas
   );
 };
 
+// 10. Royal Groom Safa / Kalgi Motif (पारंपरिक राजसी साफा एवं कलगी)
+export const RoyalSafaIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 56 }) => {
+  const gradId = `safa-gold-${Math.random().toString(36).substr(2, 9)}`;
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <GoldGradientDef id={gradId} />
+      {/* Turban Folds / Pagri Contours */}
+      <path
+        d="M 22 56 C 18 48 20 38 30 32 C 40 26 58 28 64 36 C 68 42 66 52 60 56 C 48 62 32 62 22 56 Z"
+        fill="#570D19"
+        stroke={`url(#${gradId})`}
+        strokeWidth="2"
+      />
+      {/* Turban Swirls */}
+      <path d="M 24 48 C 32 40 50 38 62 46" stroke={`url(#${gradId})`} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M 26 54 C 36 46 48 44 60 52" stroke={`url(#${gradId})`} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M 30 38 C 38 32 50 32 58 38" stroke={`url(#${gradId})`} strokeWidth="1.2" strokeLinecap="round" />
+      {/* Royal Kalgi / Sarpech Brooch at top */}
+      <path
+        d="M 40 32 C 38 22 40 10 42 6 C 44 10 46 22 44 32 Z"
+        fill={`url(#${gradId})`}
+      />
+      {/* Pearl / Gem drop on Kalgi */}
+      <circle cx="42" cy="30" r="3" fill="#FFF8E7" stroke={`url(#${gradId})`} strokeWidth="1" />
+      <circle cx="42" cy="18" r="2" fill="#E6D3A3" />
+      <circle cx="42" cy="8" r="1.5" fill="#FFF8E7" />
+      {/* Trailing Safa cloth on side */}
+      <path
+        d="M 58 54 C 62 58 66 68 64 74 C 62 76 60 74 60 70 C 60 66 58 58 56 56"
+        fill="#380710"
+        stroke={`url(#${gradId})`}
+        strokeWidth="1.2"
+      />
+    </svg>
+  );
+};
+
+// 11. Royal Bride Doli / Palanquin Motif (मांगलिक वधु पालकी एवं मयूर)
+export const RoyalDoliIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 56 }) => {
+  const gradId = `doli-gold-${Math.random().toString(36).substr(2, 9)}`;
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <GoldGradientDef id={gradId} />
+      {/* Palanquin Dome / Chhatri */}
+      <path
+        d="M 26 36 C 26 26 34 20 40 16 C 46 20 54 26 54 36 Z"
+        fill="#570D19"
+        stroke={`url(#${gradId})`}
+        strokeWidth="1.8"
+      />
+      {/* Top Kalash Kalgi */}
+      <circle cx="40" cy="14" r="2.5" fill={`url(#${gradId})`} />
+      <path d="M 38 16 L 42 16 L 40 12 Z" fill="#FFF8E7" />
+      {/* Doli Carriage Box */}
+      <rect x="22" y="36" width="36" height="24" rx="4" fill="#380710" stroke={`url(#${gradId})`} strokeWidth="1.8" />
+      {/* Jharokha Window with Arch Curtain */}
+      <path
+        d="M 32 54 L 32 44 C 32 40 48 40 48 44 L 48 54 Z"
+        fill="#570D19"
+        stroke={`url(#${gradId})`}
+        strokeWidth="1.2"
+      />
+      {/* Hanging pearl tassels */}
+      <circle cx="34" cy="56" r="1.2" fill="#FFF8E7" />
+      <circle cx="40" cy="56" r="1.2" fill="#FFF8E7" />
+      <circle cx="46" cy="56" r="1.2" fill="#FFF8E7" />
+      {/* Doli Carrying Poles (Danda) */}
+      <line x1="8" y1="44" x2="72" y2="44" stroke={`url(#${gradId})`} strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="10" cy="44" r="2" fill="#FFF8E7" />
+      <circle cx="70" cy="44" r="2" fill="#FFF8E7" />
+    </svg>
+  );
+};
+
+// 12. Royal Gathbandhan Knot (पवित्र गठबंधन गाँठ एवं मंगल कलश)
+export const RoyalGathbandhanIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 64 }) => {
+  const gradId = `gath-gold-${Math.random().toString(36).substr(2, 9)}`;
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <GoldGradientDef id={gradId} />
+      {/* Golden Radiance Ring */}
+      <circle cx="40" cy="40" r="30" stroke={`url(#${gradId})`} strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+      {/* Sacred Knot Ribbon Loops */}
+      <path
+        d="M 20 48 C 24 36 32 32 40 40 C 48 48 56 44 60 32"
+        stroke="#C6A15B"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path
+        d="M 20 32 C 24 44 32 48 40 40 C 48 32 56 36 60 48"
+        stroke="#E6D3A3"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Central Auspicious Sacred Lotus Seal */}
+      <circle cx="40" cy="40" r="14" fill="#380710" stroke={`url(#${gradId})`} strokeWidth="2" />
+      <circle cx="40" cy="40" r="11" fill="none" stroke="#E6D3A3" strokeWidth="0.8" strokeDasharray="2 2" />
+      {/* Center Heart / Sacred Flame */}
+      <path
+        d="M 40 35 C 42 32 46 32 46 36 C 46 40 40 44 40 44 C 40 44 34 40 34 36 C 34 32 38 32 40 35 Z"
+        fill={`url(#${gradId})`}
+      />
+      {/* Tassels */}
+      <line x1="38" y1="54" x2="36" y2="64" stroke={`url(#${gradId})`} strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="42" y1="54" x2="44" y2="64" stroke={`url(#${gradId})`} strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="36" cy="65" r="1.5" fill="#FFF8E7" />
+      <circle cx="44" cy="65" r="1.5" fill="#FFF8E7" />
+    </svg>
+  );
+};
+
