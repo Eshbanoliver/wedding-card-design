@@ -79,13 +79,12 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = () => {
       {/* Hidden HTML5 Audio Element playing the authentic Namokar Mantra */}
       <audio
         ref={audioRef}
-        src="/namokar-mantra.mp3"
+        src="/audio.mpeg"
         loop
         preload="metadata"
         playsInline
       >
-        <source src="/namokar-mantra.mp3" type="audio/mpeg" />
-        <source src="/namokar-mantra.mp3" type="audio/mp3" />
+        <source src="/audio.mpeg" type="audio/mpeg" />
       </audio>
 
       <button

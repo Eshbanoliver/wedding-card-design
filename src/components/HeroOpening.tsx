@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { JainSymbol, CornerOrnament, SacredDiya } from './OrnamentalSVGs';
+import { CornerOrnament, SacredDiya } from './OrnamentalSVGs';
 import { Sparkles, Heart } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -47,8 +47,15 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             transition={{ delay: 0.4, duration: 1 }}
             className="flex flex-col items-center justify-center mt-2 mb-4"
           >
-            <div className="relative p-2">
-              <JainSymbol size={76} className="filter drop-shadow-[0_0_12px_rgba(198,161,91,0.5)]" />
+            <div className="relative p-1.5 flex items-center justify-center">
+              <img
+                src="/jain-symbol-brass.png"
+                onError={(e) => {
+                  e.currentTarget.src = '/images.jfif';
+                }}
+                alt="Jain Prateek Chinha"
+                className="w-12 sm:w-14 max-h-20 object-contain filter drop-shadow-[0_0_12px_rgba(198,161,91,0.55)] hover:scale-105 transition-transform duration-300"
+              />
             </div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -81,9 +88,6 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
             transition={{ delay: 1.1, duration: 0.9 }}
             className="my-3 md:my-5 flex flex-col items-center justify-center text-center"
           >
-            <span className="block text-xs uppercase tracking-[0.25em] font-serif text-gold-champagne/80 mb-2 text-center">
-              {t.royalWeddingLabel}
-            </span>
             <h1 className="block text-3xl sm:text-4xl md:text-5xl font-devanagari font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#FFFDF5] via-[#E8D5A7] to-[#C6A15B] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-normal py-1.5 text-center">
               {t.shubhVivah}
             </h1>
