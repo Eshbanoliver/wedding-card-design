@@ -18,8 +18,8 @@ export const ShareControls: React.FC = () => {
     const url = getShareUrl();
     const shareText =
       language === 'hi'
-        ? `॥ शुभ विवाह ॥\nपरम तत्व श्री भगवान की अनंत कृपा से,\n\nअक्षय ❤️ विभूति\n\nके पावन विवाह संस्कार में आप सपरिवार सादर आमंत्रित हैं।\n\nदिनांक: 24 & 25 नवंबर 2026\nस्थान: होटल मदुरै, उदयपुर (राजस्थान)\n\nडिजिटल आमंत्रण पत्र देखें:\n`
-        : `॥ Shubh Vivah ॥\nWith the divine blessings of the Almighty,\n\nAkshay ❤️ Vibhuti\n\nCordially invite you and your family to celebrate their royal wedding.\n\nDate: 24 & 25 November 2026\nVenue: Hotel Madurai, Udaipur (Rajasthan)\n\nView Royal Wedding Invitation:\n`;
+        ? `॥ शुभ विवाह ॥\nपरम तत्व श्री भगवान की अनंत कृपा से,\n\nविभूति ❤️ अक्षय\n\nके पावन विवाह संस्कार में आप सपरिवार सादर आमंत्रित हैं।\n\nदिनांक: 24 & 25 नवंबर 2026\nस्थान: होटल मदुरै, उदयपुर (राजस्थान)\n\nडिजिटल आमंत्रण पत्र देखें:\n`
+        : `॥ Shubh Vivah ॥\nWith the divine blessings of the Almighty,\n\nVibhuti ❤️ Akshay\n\nCordially invite you and your family to celebrate their royal wedding.\n\nDate: 24 & 25 November 2026\nVenue: Hotel Madurai, Udaipur (Rajasthan)\n\nView Royal Wedding Invitation:\n`;
 
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + url)}`;
     window.open(whatsappUrl, '_blank');

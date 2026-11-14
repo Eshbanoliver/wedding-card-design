@@ -118,7 +118,7 @@ export const GrandClosing: React.FC = () => {
 
             {/* Sacred Jain Mangal Paath Inscription */}
             <div className="mt-8 pt-4 border-t border-gold-antique/20 flex flex-wrap items-center justify-center gap-4 text-xs font-devanagari text-gold-champagne/80 leading-normal">
-              <span>॥ ॐ शांतिः शांतिः शांतिः ॥</span>
+              <span>॥ शांतिः शांतिः शांतिः ॥</span>
               <span className="text-gold-antique font-serif">卐</span>
               <span>॥ चत्तारि मंगलं • अरिहंता मंगलं • सिद्धा मंगलं ॥</span>
             </div>

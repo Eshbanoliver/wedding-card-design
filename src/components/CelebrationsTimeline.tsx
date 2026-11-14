@@ -688,13 +688,13 @@ export const CelebrationsTimeline: React.FC = () => {
                 <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
                   <a
                     href={createGoogleCalendarUrl(
-                      `Akshay & Vibhuti - ${evt.nameEn}`,
+                      `Vibhuti & Akshay - ${evt.nameEn}`,
                       evt.id === 'wedding'
                         ? '20261125T090000'
                         : evt.id === 'haldi'
                         ? '20261124T150000'
                         : '20261124T180000',
-                      `Royal Jain Wedding of Akshay & Vibhuti. Ceremony: ${evt.nameHi} (${evt.nameEn}). Venue: Hotel Madurai, Udaipur, Rajasthan.`
+                      `Royal Jain Wedding of Vibhuti & Akshay. Ceremony: ${evt.nameHi} (${evt.nameEn}). Venue: Hotel Madurai, Udaipur, Rajasthan.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"

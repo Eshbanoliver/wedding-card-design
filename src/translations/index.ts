@@ -16,7 +16,7 @@ export const translations = {
     langSwitch: 'EN',
 
     // ─── HERO OPENING ──────────────────────────────────────
-    invocation: '॥ ॐ श्री ऋषभदेवाय नमः ॥',
+    invocation: '॥ श्री ऋषभदेवाय नमः ॥',
     royalWeddingLabel: 'राजसी विवाह आमंत्रण',
     shubhVivah: 'शुभ विवाह',
     groomName: 'अक्षय',
@@ -49,7 +49,7 @@ export const translations = {
     varEvamVadhu: 'वर एवं वधु',
     coupleTagline: 'श्रद्धा, परंपरा और प्रेम से बंधे दो जीव',
     couplePortraitTag: '॥ राजसी युगल दर्शन ॥',
-    coupleNamesFull: 'अक्षय एवं विभूति',
+    coupleNamesFull: 'विभूति एवं अक्षय',
     varLabel: '॥ राजसी वर ॥',
     vadhuLabel: '॥ रूपवती वधु ॥',
     gathbandhanText: 'पवित्र गठबंधन',
@@ -144,7 +144,7 @@ export const translations = {
     grandClosingLabel: 'पावन निमंत्रण',
     yourPresenceMeans: 'आपकी उपस्थिति हमारे लिए परम सौभाग्य',
     closingInvite:
-      'ईश्वर की असीम कृपा और बड़ों के शुभ आशीर्वाद से अक्षय और विभूति के विवाह बंधन में आप और आपका पूरा परिवार सादर आमंत्रित है।',
+      'ईश्वर की असीम कृपा और बड़ों के शुभ आशीर्वाद से विभूति और अक्षय के विवाह बंधन में आप और आपका पूरा परिवार सादर आमंत्रित है।',
     rsvpLabel: 'आप अवश्य पधारें',
     withBlessings: 'सादर, शुभाकांक्षी परिवार',
 
@@ -155,7 +155,7 @@ export const translations = {
     footerInvited: 'सादर आमंत्रित',
     footerLocations: 'उदयपुर • फिरोजाबाद',
     footerDates: '24 & 25 नवंबर 2026',
-    footerMantra: '卐 ॐ अर्हम् नमः 卐',
+    footerMantra: '卐 अर्हम् नमः 卐',
 
     // ─── MUSIC PLAYER ────────────────────────────────────
     musicPlayingLabel: 'नवकार मंत्र',
@@ -178,7 +178,7 @@ export const translations = {
     langSwitch: 'हिं',
 
     // ─── HERO OPENING ──────────────────────────────────────
-    invocation: '॥ Oṃ Śrī Ṛṣabhadevāya Namaḥ ॥',
+    invocation: '॥ Śrī Ṛṣabhadevāya Namaḥ ॥',
     royalWeddingLabel: 'Royal Wedding Invitation',
     shubhVivah: 'Shubh Vivah',
     groomName: 'Akshay',
@@ -211,7 +211,7 @@ export const translations = {
     varEvamVadhu: 'The Bride & Groom',
     coupleTagline: 'Two Souls Bound by Faith, Tradition & Love',
     couplePortraitTag: '॥ The Royal Couple ॥',
-    coupleNamesFull: 'Akshay & Vibhuti',
+    coupleNamesFull: 'Vibhuti & Akshay',
     varLabel: '॥ The Royal Groom ॥',
     vadhuLabel: '॥ The Gracious Bride ॥',
     gathbandhanText: 'Sacred Knot',
@@ -306,7 +306,7 @@ export const translations = {
     grandClosingLabel: 'Sacred Invitation',
     yourPresenceMeans: 'Your Presence Is Our Greatest Blessing',
     closingInvite:
-      'With the infinite grace of the Divine and the blessings of our elders, you and your entire family are cordially invited to the auspicious wedding of Akshay and Vibhuti.',
+      'With the infinite grace of the Divine and the blessings of our elders, you and your entire family are cordially invited to the auspicious wedding of Vibhuti and Akshay.',
     rsvpLabel: 'Please do honour us with your presence',
     withBlessings: 'Yours sincerely, the families',
 
@@ -318,7 +318,7 @@ export const translations = {
     footerInvited: 'Cordially Invited',
     footerLocations: 'Udaipur • Firozabad',
     footerDates: '24 & 25 November 2026',
-    footerMantra: '卐 Oṃ Arhaṃ Namaḥ 卐',
+    footerMantra: '卐 Arhaṃ Namaḥ 卐',
 
     // ─── MUSIC PLAYER ────────────────────────────────────
     musicPlayingLabel: 'Namokar Mantra',

@@ -101,7 +101,7 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
 
             <div className="relative flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 py-2">
               <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFF9EA] via-[#E6D3A3] to-[#C6A15B] tracking-wider drop-shadow-md inline-block py-2 leading-normal">
-                {t.groomName}
+                {t.brideName}
               </span>
 
               <motion.div
@@ -113,12 +113,12 @@ export const HeroOpening: React.FC<HeroOpeningProps> = ({ onOpenInvitation }) =>
               </motion.div>
 
               <span className="text-3xl sm:text-4xl md:text-5xl font-devanagari font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#C6A15B] via-[#E6D3A3] to-[#FFF9EA] tracking-wider drop-shadow-md inline-block py-2 leading-normal">
-                {t.brideName}
+                {t.groomName}
               </span>
             </div>
 
             <p className="text-xs sm:text-sm font-cormorant tracking-[0.25em] uppercase text-gold-champagne/90 mt-2 font-medium">
-              {t.groomNameEn} &amp; {t.brideNameEn}
+              {t.brideNameEn} &amp; {t.groomNameEn}
             </p>
           </motion.div>
 

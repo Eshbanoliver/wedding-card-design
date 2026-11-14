@@ -72,7 +72,7 @@ export const CoupleSection: React.FC = () => {
           <div className="relative rounded-t-[72px] sm:rounded-t-[98px] rounded-b-xl overflow-hidden shadow-inner border border-gold-antique/40 aspect-[3/4] max-h-[480px] w-full bg-maroon-darkest">
             <img
               src="/bride-groom.jpg"
-              alt="Akshay and Vibhuti - Royal Jain Wedding Couple (Studio Ghibli Style)"
+              alt="Vibhuti and Akshay - Royal Jain Wedding Couple (Studio Ghibli Style)"
               className="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.01] hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />
@@ -85,11 +85,11 @@ export const CoupleSection: React.FC = () => {
           <div className="pt-4 pb-2 text-center">
             <div className="flex items-center justify-center gap-2">
               <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-pale via-gold-champagne to-gold-antique leading-normal py-0.5">
-                {t.groomName}
+                {t.brideName}
               </span>
               <span className="text-gold-antique font-serif text-sm">卐</span>
               <span className="font-devanagari text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-antique via-gold-champagne to-gold-pale leading-normal py-0.5">
-                {t.brideName}
+                {t.groomName}
               </span>
             </div>
             <p className="font-cormorant text-xs sm:text-sm tracking-[0.2em] uppercase text-gold-champagne/80 mt-0.5 font-medium">
